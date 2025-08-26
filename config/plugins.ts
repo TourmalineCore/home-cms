@@ -3,13 +3,13 @@ export default ({ env }) => ({
         config: {
             provider: 'aws-s3',
             providerOptions: {
-                baseUrl: env('AWS_PUBLIC_ENDPOINT', 'http://localhost:9000/home-bucket-local'),
+                baseUrl: env('AWS_PUBLIC_ENDPOINT', 'http://localhost:9010/home-bucket-local'),
                 s3Options: {
                     credentials: {
                         accessKeyId: env('AWS_ACCESS_KEY_ID', 'admin'),
                         secretAccessKey: env('AWS_ACCESS_SECRET_KEY', 'rootPassword'),
                     },
-                    endpoint: env('AWS_ENDPOINT', 'http://localhost:9000'),
+                    endpoint: env('AWS_ENDPOINT', 'http://localhost:9010'),
                     region: env('AWS_REGION', 'us-east-1'),
                     forcePathStyle: true,
                     params: {

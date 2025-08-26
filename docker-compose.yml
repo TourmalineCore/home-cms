@@ -1,6 +1,6 @@
 services:
   postgresql:
-    container_name: postgresql
+    container_name: home-postgresql
     image: postgres:14
     profiles: ['db-and-minio-s3', 'local-run']
     environment:
@@ -8,17 +8,17 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
     ports:
-      - 6432:5432
+      - 6433:5432
     networks:
       - home-cms-network
 
   minio:
-    container_name: minio
+    container_name: home-minio
     image: minio/minio
     profiles: ['db-and-minio-s3', 'local-run']
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - "9010:9000"
+      - "9011:9001"
     networks:
       - home-cms-network
     volumes:
@@ -30,7 +30,7 @@ services:
 
   minio-setup:
     image: minio/mc:latest
-    container_name: minio-setup
+    container_name: home-minio-setup
     depends_on:
       - minio
     profiles: ['db-and-minio-s3', 'local-run']
@@ -42,7 +42,7 @@ services:
       - home-cms-network
     entrypoint: >
       /bin/sh -c "
-      until mc alias set myminio http://minio:9000 $$MINIO_ROOT_USER $$MINIO_ROOT_PASSWORD; do
+      until mc alias set myminio http://minio:9010 $$MINIO_ROOT_USER $$MINIO_ROOT_PASSWORD; do
         echo 'Waiting for MinIO to be ready...'
         sleep 5
       done &&
