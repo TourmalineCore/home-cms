@@ -3,7 +3,7 @@
 
 ### Running CMS locally
 
-Add an .env file vase on .env.example.
+Add an .env file base on .env.example.
 
 Install dependencies:
 ```
