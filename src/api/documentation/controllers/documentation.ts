@@ -6,14 +6,15 @@ export default {
   async getSwaggerJson(ctx) {
     const openAPISpecsPath = path.join(
       strapi.dirs.app.extensions,
-      'documentation',
-      'documentation',
-      '1.0.0',
-      'full_documentation.json'
+      `documentation`,
+      `documentation`,
+      `1.0.0`,
+      `full_documentation.json`
     );
 
+
     try {
-      const documentation = fs.readFileSync(openAPISpecsPath, 'utf8');
+      const documentation = fs.readFileSync(openAPISpecsPath, `utf8`);
       const response = JSON.parse(documentation);
 
       ctx.send(response);

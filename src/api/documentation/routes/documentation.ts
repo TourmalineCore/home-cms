@@ -2,9 +2,9 @@
 export default {
   routes: [
     {
-      method: 'GET',
-      path: '/documentation/swagger.json',
-      handler: 'documentation.getSwaggerJson',
+      method: `GET`,
+      path: `/documentation/swagger.json`,
+      handler: `documentation.getSwaggerJson`,
     }
   ]
-}
+} 

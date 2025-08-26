@@ -5,7 +5,7 @@ export default (config: UserConfig) => {
   return mergeConfig(config, {
     resolve: {
       alias: {
-        '@': '/src',
+        '@': `/src`,
       },
     },
   });
