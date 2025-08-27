@@ -34,6 +34,9 @@ export default ({
         title: `API documentation`,
         description: ``,
       },
+      'x-strapi-config': {
+        plugins: [],
+      },
     },
   },
   'strapi-cache': {
