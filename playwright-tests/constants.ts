@@ -1,0 +1,1 @@
+export const API_SMOKE_NAME_PREFIX = `[API-SMOKE]`;
