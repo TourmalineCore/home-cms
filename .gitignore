@@ -127,3 +127,9 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
