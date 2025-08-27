@@ -25,6 +25,9 @@ export default ({
   seo: {
     enabled: true,
   },
+  'drag-drop-content-types-strapi5': {
+    enabled: true,
+  },
   documentation: {
     enabled: true,
     config: {
