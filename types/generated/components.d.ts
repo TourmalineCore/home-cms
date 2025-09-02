@@ -1,5 +1,21 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedHeader extends Struct.ComponentSchema {
+  collectionName: 'components_shared_headers';
+  info: {
+    displayName: 'Header';
+  };
+  attributes: {
+    buttonLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    emailAddress: Schema.Attribute.String & Schema.Attribute.Required;
+    emailCaption: Schema.Attribute.String;
+    socialLinks: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-network.social-network'
+    >;
+  };
+}
+
 export interface SharedOpenGraph extends Struct.ComponentSchema {
   collectionName: 'components_shared_open_graphs';
   info: {
@@ -54,6 +70,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.header': SharedHeader;
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;
     }

@@ -3,20 +3,22 @@ import { createSocialNetworkRecord, deleteSocialNetworkRecord, SocialNetworksSch
 import { ApiTestFixtures, expect, test } from "./api-test-fixtures";
 import { HttpStatusCode } from "../enums";
 
-const HeaderSchema = z.object({
-  buttonLabel: z.string(),
-  emailCaption: z.string(),
-  emailAddress: z.string(),
-  socialLinks: SocialNetworksSchema.default([])
+const LayoutSchema = z.object({
+  header: z.object({
+    buttonLabel: z.string(),
+    emailCaption: z.string(),
+    emailAddress: z.string(),
+    socialLinks: SocialNetworksSchema.default([])
+  })
 });
 
-const ENDPOINT = `/api/header`;
+const ENDPOINT = `/api/layout`;
 
-test.describe(`Header single type response tests`, () => {
+test.describe(`Layout single type response tests`, () => {
   test.beforeEach(async ({
     apiRequest 
   }) => {
-    await updateHeaderSingleType({
+    await updateLayoutSingleType({
       apiRequest 
     });
   });
@@ -24,7 +26,7 @@ test.describe(`Header single type response tests`, () => {
   test.afterEach(async ({
     apiRequest 
   }) => {
-    await cleanupHeaderSingleType({
+    await cleanupLayoutSingleType({
       apiRequest 
     });
 
@@ -34,31 +36,31 @@ test.describe(`Header single type response tests`, () => {
   });
 
   test(`
-      GIVEN an empty header single type
+      GIVEN an empty layout single type
       WHEN call method PUT ${ENDPOINT}
       AND call method GET ${ENDPOINT}
       SHOULD get a correct response
       `,
-  checkHeaderSingleTypeResponseTest
+  checkLayoutSingleTypeResponseTest
   );
 });
 
-async function checkHeaderSingleTypeResponseTest({
+async function checkLayoutSingleTypeResponseTest({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
 }) {
-  const headerResponse = await apiRequest(`${ENDPOINT}?populate=*`);
-  const headerData = await headerResponse.json();
+  const layoutResponse = await apiRequest(`${ENDPOINT}?populate=*`);
+  const layoutData = await layoutResponse.json();
 
   await expect(() => {
-    HeaderSchema.parse(headerData.data)
-  }, `Header response is correct`)
+    LayoutSchema.parse(layoutData.data)
+  }, `Layout response is correct`)
     .not
     .toThrow()
 }
 
-async function updateHeaderSingleType({
+async function updateLayoutSingleType({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
@@ -72,22 +74,24 @@ async function updateHeaderSingleType({
       method: `put`,
       data: {
         data: {
-          buttonLabel: `buttonLabel`,
-          emailCaption: `emailCaption`,
-          emailAddress: `emailAddress`,
-          socialLinks: [socialLinkId]
+          header: {
+            buttonLabel: `buttonLabel`,
+            emailCaption: `emailCaption`,
+            emailAddress: `emailAddress`,
+            socialLinks: [socialLinkId]
+          }
         },
       }
     });
 
-    await expect(response.status(), `Header single type should be updated with status 200`)
+    await expect(response.status(), `Layout single type should be updated with status 200`)
       .toEqual(HttpStatusCode.Ok);
   } catch (error) {
-    throw new Error(`Failed to update test header single type: ${error.message}`)
+    throw new Error(`Failed to update test layout single type: ${error.message}`)
   }
 }
 
-async function cleanupHeaderSingleType({
+async function cleanupLayoutSingleType({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
@@ -97,9 +101,9 @@ async function cleanupHeaderSingleType({
       method: `delete`
     });
 
-    await expect(response.status(), `Header single type should be deleted with status 204`)
+    await expect(response.status(), `Layout single type should be deleted with status 204`)
       .toEqual(HttpStatusCode.NoContent);
   } catch (error) {
-    throw new Error(`Failed to delete test header single type: ${error.message}`)
+    throw new Error(`Failed to delete test layout single type: ${error.message}`)
   }
 }
