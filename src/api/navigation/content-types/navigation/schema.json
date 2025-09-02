@@ -37,15 +37,6 @@
       "relation": "oneToMany",
       "target": "api::navigation.navigation"
     },
-    "showInHeader": {
-      "type": "boolean",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "default": false
-    },
     "rank": {
       "type": "integer",
       "pluginOptions": {
@@ -53,6 +44,16 @@
           "localized": false
         }
       }
+    },
+    "isFirstLevelNavItem": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "default": false
     }
   }
 }

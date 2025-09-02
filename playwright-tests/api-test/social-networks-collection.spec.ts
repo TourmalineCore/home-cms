@@ -8,10 +8,10 @@ const LINK = `/socialNetworkLink`;
 const ENDPOINT = `/api/social-networks`;
 
 
-const SocialNetworksSchema = z.array(
+export const SocialNetworksSchema = z.array(
   z.object({
     name: z.string(),
-    link: z.string()
+    link: z.string(),
   })
 );
 
@@ -62,7 +62,7 @@ async function checkSocialNetworksResponse({
     .toThrow()
 }
 
-async function createSocialNetworkRecord({
+export async function createSocialNetworkRecord({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
@@ -80,12 +80,15 @@ async function createSocialNetworkRecord({
 
     await expect(response.status(), `Social network should be created with status 201`)
       .toEqual(HttpStatusCode.Created);
+    const responseData =  await response.json();
+
+    return responseData.data.id;
   } catch (error) {
     throw new Error(`Failed to create test social network: ${error.message}`)
   }
 }
 
-async function deleteSocialNetworkRecord({
+export async function deleteSocialNetworkRecord({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];

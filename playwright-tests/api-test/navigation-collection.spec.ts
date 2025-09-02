@@ -11,7 +11,7 @@ const NavItemSchema = z.object({
   name: z.string(),
   link: z.string()
     .nullish(),
-  showInHeader: z.boolean(),
+  isFirstLevelNavItem: z.boolean(),
 });
 
 const NavigationSchema = z.array(
