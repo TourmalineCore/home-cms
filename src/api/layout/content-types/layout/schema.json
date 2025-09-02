@@ -44,7 +44,7 @@
       },
       "component": "shared.footer",
       "repeatable": false,
-      "required": false
+      "required": true
     }
   }
 }

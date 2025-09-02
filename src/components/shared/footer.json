@@ -12,7 +12,7 @@
       "type": "component",
       "component": "footer.footer-navigation-list",
       "repeatable": true,
-      "required": false
+      "required": true
     }
   },
   "config": {}

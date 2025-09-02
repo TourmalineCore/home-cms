@@ -446,6 +446,7 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
         };
       }>;
     footer: Schema.Attribute.Component<'shared.footer', false> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

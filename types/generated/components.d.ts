@@ -24,7 +24,8 @@ export interface SharedFooter extends Struct.ComponentSchema {
     navigationLists: Schema.Attribute.Component<
       'footer.footer-navigation-list',
       true
-    >;
+    > &
+      Schema.Attribute.Required;
   };
 }
 

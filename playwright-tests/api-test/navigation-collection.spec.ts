@@ -25,7 +25,7 @@ test.describe(`Navigation response tests`, () => {
   test.beforeEach(async ({
     apiRequest
   }) => {
-    await deleteNavigationRecord({
+    await cleanupNavigationRecord({
       apiRequest
     });
 
@@ -37,7 +37,7 @@ test.describe(`Navigation response tests`, () => {
   test.afterEach(async ({
     apiRequest
   }) => {
-    await deleteNavigationRecord({
+    await cleanupNavigationRecord({
       apiRequest
     });
   }); 
@@ -91,20 +91,20 @@ async function createNavigationRecord({
   }
 }
 
-async function deleteNavigationRecord({
+async function cleanupNavigationRecord({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
 }) {
   try {
-    const navigation = await getNavigationData({
+    const navigationList = await getNavigationData({
       apiRequest
     });
 
-    const testNavigation = navigation.find((navigation) => navigation.name === NAME);
+    const navigation = navigationList.find((navigation) => navigation.name === NAME);
 
-    if (testNavigation) {
-      const response = await apiRequest(`${ENDPOINT}/${testNavigation.documentId}`, {
+    if (navigation) {
+      const response = await apiRequest(`${ENDPOINT}/${navigation.documentId}`, {
         method: `delete`
       });
 
