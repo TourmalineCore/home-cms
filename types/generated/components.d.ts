@@ -1,13 +1,40 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface FooterFooterNavigationList extends Struct.ComponentSchema {
+  collectionName: 'components_footer_footer_navigation_lists';
+  info: {
+    displayName: 'footerNavigationList';
+  };
+  attributes: {
+    caption: Schema.Attribute.String & Schema.Attribute.Required;
+    links: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer-navigation.footer-navigation'
+    >;
+  };
+}
+
+export interface SharedFooter extends Struct.ComponentSchema {
+  collectionName: 'components_shared_footers';
+  info: {
+    displayName: 'footer';
+  };
+  attributes: {
+    emailCaption: Schema.Attribute.String;
+    navigationLists: Schema.Attribute.Component<
+      'footer.footer-navigation-list',
+      true
+    >;
+  };
+}
+
 export interface SharedHeader extends Struct.ComponentSchema {
   collectionName: 'components_shared_headers';
   info: {
-    displayName: 'Header';
+    displayName: 'header';
   };
   attributes: {
     buttonLabel: Schema.Attribute.String & Schema.Attribute.Required;
-    emailAddress: Schema.Attribute.String & Schema.Attribute.Required;
     emailCaption: Schema.Attribute.String;
     socialLinks: Schema.Attribute.Relation<
       'oneToMany',
@@ -70,6 +97,8 @@ export interface SharedSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'footer.footer-navigation-list': FooterFooterNavigationList;
+      'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;

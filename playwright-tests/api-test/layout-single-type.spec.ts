@@ -1,14 +1,19 @@
 import z from "zod";
-import { createSocialNetworkRecord, deleteSocialNetworkRecord, SocialNetworksSchema } from "./social-networks-collection.spec";
+import { createSocialNetworkRecord, cleanupSocialNetworkRecord, SocialNetworksSchema } from "./social-networks-collection.spec";
 import { ApiTestFixtures, expect, test } from "./api-test-fixtures";
 import { HttpStatusCode } from "../enums";
+import { createFooterNavigationRecord, cleanupFooterNavigationRecord, FooterNavigationSchema } from "./footer-navigation-collection.spec";
 
 const LayoutSchema = z.object({
+  emailAddress: z.string(),
   header: z.object({
     buttonLabel: z.string(),
     emailCaption: z.string(),
-    emailAddress: z.string(),
     socialLinks: SocialNetworksSchema.default([])
+  }),
+  footer: z.object({
+    emailCaption: z.string(),
+    navigationLists: FooterNavigationSchema.default([])
   })
 });
 
@@ -30,7 +35,11 @@ test.describe(`Layout single type response tests`, () => {
       apiRequest 
     });
 
-    await deleteSocialNetworkRecord({
+    await cleanupSocialNetworkRecord({
+      apiRequest
+    })
+
+    await cleanupFooterNavigationRecord({
       apiRequest
     })
   });
@@ -68,17 +77,30 @@ async function updateLayoutSingleType({
   try {
     const socialLinkId = await createSocialNetworkRecord({
       apiRequest
-    }); 
+    });
+    
+    const footerNavigationId = await createFooterNavigationRecord({
+      apiRequest
+    })
 
     const response = await apiRequest(ENDPOINT, {
       method: `put`,
       data: {
         data: {
+          emailAddress: `emailAddress`,
           header: {
             buttonLabel: `buttonLabel`,
             emailCaption: `emailCaption`,
-            emailAddress: `emailAddress`,
             socialLinks: [socialLinkId]
+          },
+          footer: {
+            emailCaption: `emailCaption`,
+            navigationLists: [
+              {
+                caption: `caption`,
+                links: [footerNavigationId]
+              }
+            ]
           }
         },
       }

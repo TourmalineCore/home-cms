@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_footer_footer_navigation_lists",
+  "info": {
+    "displayName": "footerNavigationList"
+  },
+  "options": {},
+  "attributes": {
+    "caption": {
+      "type": "string",
+      "required": true
+    },
+    "links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::footer-navigation.footer-navigation"
+    }
+  },
+  "config": {}
+}

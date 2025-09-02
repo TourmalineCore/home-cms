@@ -3,27 +3,27 @@ import { ApiTestFixtures, expect, test } from "./api-test-fixtures";
 import { API_SMOKE_NAME_PREFIX } from "../constants";
 import { HttpStatusCode } from "../enums";
 
-const NAME = `${API_SMOKE_NAME_PREFIX} Social Network`;
-const LINK = `/socialNetworkLink`;
-const ENDPOINT = `/api/social-networks`;
+const NAME = `${API_SMOKE_NAME_PREFIX} Footer link`;
+const LINK = `/footer-link`;
+const ENDPOINT = `/api/footer-navigations`;
 
 
-export const SocialNetworksSchema = z.array(
+export const FooterNavigationSchema = z.array(
   z.object({
     name: z.string(),
     link: z.string(),
   })
 );
 
-test.describe(`Social networks response tests`, () => {
+test.describe(`Footer navigation response tests`, () => {
   test.beforeEach(async ({
     apiRequest
   }) => {
-    await cleanupSocialNetworkRecord({
+    await cleanupFooterNavigationRecord({
       apiRequest
     });
 
-    await createSocialNetworkRecord({
+    await createFooterNavigationRecord({
       apiRequest
     });
   });
@@ -31,38 +31,38 @@ test.describe(`Social networks response tests`, () => {
   test.afterEach(async ({
     apiRequest
   }) => {
-    await cleanupSocialNetworkRecord({
+    await cleanupFooterNavigationRecord({
       apiRequest
     });
   }); 
 
   test(`
-      GIVEN an empty social networks collection
+      GIVEN an empty footer navigation collection
       WHEN call method POST ${ENDPOINT}
       AND call method GET ${ENDPOINT}
       SHOULD get a correct response
       `,
-  checkSocialNetworksResponse 
+  checkFooterNavigationResponse 
   );
 })
 
-async function checkSocialNetworksResponse({
+async function checkFooterNavigationResponse({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
 }) {
-  const socialNetworks = await getSocialNetworksData({
+  const footerNavigation = await getFooterNavigationData({
     apiRequest
   });
 
   await expect(() => {
-    SocialNetworksSchema.parse(socialNetworks)
-  }, `Social networks response is correct`)
+    FooterNavigationSchema.parse(footerNavigation)
+  }, `Footer navigation response is correct`)
     .not
     .toThrow()
 }
 
-export async function createSocialNetworkRecord({
+export async function createFooterNavigationRecord({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
@@ -78,42 +78,42 @@ export async function createSocialNetworkRecord({
       }
     });
 
-    await expect(response.status(), `Social network should be created with status 201`)
+    await expect(response.status(), `Footer navigation should be created with status 201`)
       .toEqual(HttpStatusCode.Created);
     const responseData =  await response.json();
 
     return responseData.data.id;
   } catch (error) {
-    throw new Error(`Failed to create test social network: ${error.message}`)
+    throw new Error(`Failed to create test footer navigation: ${error.message}`)
   }
 }
 
-export async function cleanupSocialNetworkRecord({
+export async function cleanupFooterNavigationRecord({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
 }) {
   try {
-    const socialNetworks = await getSocialNetworksData({
+    const footerNavigationList = await getFooterNavigationData({
       apiRequest
     });
 
-    const socialNetwork = socialNetworks.find((socialNetwork) => socialNetwork.name === NAME);
+    const footerNavigation = footerNavigationList.find((footerNavigation) => footerNavigation.name === NAME);
 
-    if (socialNetwork) {
-      const response = await apiRequest(`${ENDPOINT}/${socialNetwork.documentId}`, {
+    if (footerNavigation) {
+      const response = await apiRequest(`${ENDPOINT}/${footerNavigation.documentId}`, {
         method: `delete`
       });
 
-      await expect(response.status(), `Social network should be deleted with status 204`)
+      await expect(response.status(), `Footer navigation should be deleted with status 204`)
         .toEqual(HttpStatusCode.NoContent);
     }
   } catch (error) {
-    throw new Error(`Failed to delete test social network: ${error.message}`)
+    throw new Error(`Failed to delete test footer navigation: ${error.message}`)
   }
 }
 
-async function getSocialNetworksData({
+async function getFooterNavigationData({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
