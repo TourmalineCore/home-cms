@@ -3,17 +3,23 @@ import { createSocialNetworkRecord, cleanupSocialNetworkRecord, SocialNetworksSc
 import { ApiTestFixtures, expect, test } from "./api-test-fixtures";
 import { HttpStatusCode } from "../enums";
 import { createFooterNavigationRecord, cleanupFooterNavigationRecord, FooterNavigationSchema } from "./footer-navigation-collection.spec";
+import qs from "qs";
 
 const LayoutSchema = z.object({
   emailAddress: z.string(),
   header: z.object({
     buttonLabel: z.string(),
     emailCaption: z.string(),
-    socialLinks: SocialNetworksSchema.default([])
+    socialLinks: SocialNetworksSchema
   }),
   footer: z.object({
     emailCaption: z.string(),
-    navigationLists: FooterNavigationSchema.default([])
+    navigationLists: z.array(z.object({
+      caption: z.string(),
+      isSocialNetworks: z.boolean(),
+      links: FooterNavigationSchema,
+      socialLinks: SocialNetworksSchema
+    }))
   })
 });
 
@@ -23,6 +29,18 @@ test.describe(`Layout single type response tests`, () => {
   test.beforeEach(async ({
     apiRequest 
   }) => {
+    await cleanupLayoutSingleType({
+      apiRequest 
+    });
+
+    await cleanupSocialNetworkRecord({
+      apiRequest
+    })
+
+    await cleanupFooterNavigationRecord({
+      apiRequest
+    })
+    
     await updateLayoutSingleType({
       apiRequest 
     });
@@ -59,7 +77,16 @@ async function checkLayoutSingleTypeResponseTest({
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
 }) {
-  const layoutResponse = await apiRequest(`${ENDPOINT}?populate=*`);
+  const queryParams = {
+    populate: [
+      `header.socialLinks`,
+      `footer.navigationLists`,
+      `footer.navigationLists.links`,
+      `footer.navigationLists.socialLinks`,
+    ],
+  };
+  
+  const layoutResponse = await apiRequest(`${ENDPOINT}?${qs.stringify(queryParams)}`);
   const layoutData = await layoutResponse.json();
 
   await expect(() => {
@@ -98,7 +125,13 @@ async function updateLayoutSingleType({
             navigationLists: [
               {
                 caption: `caption`,
-                links: [footerNavigationId]
+                isSocialNetworks: false,
+                links: [footerNavigationId],
+              },
+              {
+                caption: `caption 2`,
+                isSocialNetworks: true,
+                socialLinks: [socialLinkId]
               }
             ]
           }

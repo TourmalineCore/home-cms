@@ -16,8 +16,7 @@ const NavItemSchema = z.object({
 
 const NavigationSchema = z.array(
   NavItemSchema.extend({
-    navItems: z.array(NavItemSchema)
-      .default([]),
+    navItems: z.array(NavItemSchema),
   })
 );
 

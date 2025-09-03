@@ -7,9 +7,15 @@ export interface FooterFooterNavigationList extends Struct.ComponentSchema {
   };
   attributes: {
     caption: Schema.Attribute.String & Schema.Attribute.Required;
+    isSocialNetworks: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     links: Schema.Attribute.Relation<
       'oneToMany',
       'api::footer-navigation.footer-navigation'
+    >;
+    socialLinks: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-network.social-network'
     >;
   };
 }
