@@ -19,6 +19,9 @@ export default ({
     nps: env.bool(`FLAG_NPS`, true),
     promoteEE: env.bool(`FLAG_PROMOTE_EE`, true),
   },
+  rateLimit: {
+    max: 10,
+  },
   watchIgnoreFiles: [
     `../playwright-report/**`,
     `**/playwright-report/**`,
