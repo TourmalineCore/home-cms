@@ -43,6 +43,10 @@ export interface SharedHeader extends Struct.ComponentSchema {
   attributes: {
     buttonLabel: Schema.Attribute.String & Schema.Attribute.Required;
     emailCaption: Schema.Attribute.String;
+    navigationLists: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::navigation.navigation'
+    >;
     socialLinks: Schema.Attribute.Relation<
       'oneToMany',
       'api::social-network.social-network'

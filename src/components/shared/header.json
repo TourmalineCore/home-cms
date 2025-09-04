@@ -17,6 +17,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::social-network.social-network"
+    },
+    "navigationLists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::navigation.navigation"
     }
   },
   "config": {}

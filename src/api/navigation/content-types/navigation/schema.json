@@ -36,24 +36,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::navigation.navigation"
-    },
-    "rank": {
-      "type": "integer",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "isFirstLevelNavItem": {
-      "type": "boolean",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true,
-      "default": false
     }
   }
 }

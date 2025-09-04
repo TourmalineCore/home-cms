@@ -4,13 +4,15 @@ import { ApiTestFixtures, expect, test } from "./api-test-fixtures";
 import { HttpStatusCode } from "../enums";
 import { createFooterNavigationRecord, cleanupFooterNavigationRecord, FooterNavigationSchema } from "./footer-navigation-collection.spec";
 import qs from "qs";
+import { createNavigationRecord, NavigationSchema } from "./navigation-collection.spec";
 
 const LayoutSchema = z.object({
   emailAddress: z.string(),
   header: z.object({
     buttonLabel: z.string(),
     emailCaption: z.string(),
-    socialLinks: SocialNetworksSchema
+    socialLinks: SocialNetworksSchema,
+    navigationLists: NavigationSchema
   }),
   footer: z.object({
     emailCaption: z.string(),
@@ -80,6 +82,8 @@ async function checkLayoutSingleTypeResponseTest({
   const queryParams = {
     populate: [
       `header.socialLinks`,
+      `header.navigationLists`,
+      `header.navigationLists.navItems`,
       `footer.navigationLists`,
       `footer.navigationLists.links`,
       `footer.navigationLists.socialLinks`,
@@ -88,7 +92,7 @@ async function checkLayoutSingleTypeResponseTest({
   
   const layoutResponse = await apiRequest(`${ENDPOINT}?${qs.stringify(queryParams)}`);
   const layoutData = await layoutResponse.json();
-
+  
   await expect(() => {
     LayoutSchema.parse(layoutData.data)
   }, `Layout response is correct`)
@@ -105,11 +109,15 @@ async function updateLayoutSingleType({
     const socialLinkId = await createSocialNetworkRecord({
       apiRequest
     });
+
+    const headerNavigationId = await createNavigationRecord({
+      apiRequest
+    });
     
     const footerNavigationId = await createFooterNavigationRecord({
       apiRequest
-    })
-
+    });
+    
     const response = await apiRequest(ENDPOINT, {
       method: `put`,
       data: {
@@ -118,6 +126,7 @@ async function updateLayoutSingleType({
           header: {
             buttonLabel: `buttonLabel`,
             emailCaption: `emailCaption`,
+            navigationLists: [headerNavigationId],
             socialLinks: [socialLinkId]
           },
           footer: {

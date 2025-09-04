@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-09-03T04:55:20.434Z"
+    "x-generation-date": "2025-09-04T05:45:25.482Z"
   },
   "x-strapi-config": {
     "plugins": []
@@ -2643,6 +2643,20 @@
                 }
               }
             }
+          },
+          "navigationLists": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "documentId": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -2713,8 +2727,7 @@
         "properties": {
           "data": {
             "required": [
-              "name",
-              "isFirstLevelNavItem"
+              "name"
             ],
             "type": "object",
             "properties": {
@@ -2737,12 +2750,6 @@
                   ],
                   "example": "string or id"
                 }
-              },
-              "rank": {
-                "type": "integer"
-              },
-              "isFirstLevelNavItem": {
-                "type": "boolean"
               },
               "locale": {
                 "type": "string"
@@ -2803,8 +2810,7 @@
       "Navigation": {
         "type": "object",
         "required": [
-          "name",
-          "isFirstLevelNavItem"
+          "name"
         ],
         "properties": {
           "id": {
@@ -2849,12 +2855,6 @@
                       }
                     }
                   }
-                },
-                "rank": {
-                  "type": "integer"
-                },
-                "isFirstLevelNavItem": {
-                  "type": "boolean"
                 },
                 "createdAt": {
                   "type": "string",
@@ -3161,12 +3161,6 @@
                 }
               }
             }
-          },
-          "rank": {
-            "type": "integer"
-          },
-          "isFirstLevelNavItem": {
-            "type": "boolean"
           },
           "createdAt": {
             "type": "string",

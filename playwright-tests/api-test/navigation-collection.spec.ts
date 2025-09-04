@@ -11,10 +11,9 @@ const NavItemSchema = z.object({
   name: z.string(),
   link: z.string()
     .nullish(),
-  isFirstLevelNavItem: z.boolean(),
 });
 
-const NavigationSchema = z.array(
+export const NavigationSchema = z.array(
   NavItemSchema.extend({
     navItems: z.array(NavItemSchema),
   })
@@ -67,7 +66,7 @@ async function checkNavigationResponseTest({
     .toThrow()
 }
 
-async function createNavigationRecord({
+export async function createNavigationRecord({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
@@ -85,6 +84,10 @@ async function createNavigationRecord({
 
     await expect(response.status(), `Navigation should be created with status 201`)
       .toEqual(HttpStatusCode.Created);
+
+    const responseData =  await response.json();
+
+    return responseData.data.id;
   } catch (error) {
     throw new Error(`Failed to create test navigation: ${error.message}`)
   }
