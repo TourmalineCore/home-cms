@@ -19,7 +19,9 @@ export default ({
     nps: env.bool(`FLAG_NPS`, true),
     promoteEE: env.bool(`FLAG_PROMOTE_EE`, true),
   },
+  // https://docs.strapi.io/cms/configurations/admin-panel#rate-limiting
   rateLimit: {
+    // Number of authorization requests
     max: 10,
   },
   watchIgnoreFiles: [
