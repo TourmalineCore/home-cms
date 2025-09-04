@@ -26,12 +26,12 @@
 **/values.dev.yaml
 .env.example
 
-eslint.config.mts
+**/eslint.config.mts
 
 **/dist
 **/playwright-report
 **/playwright-tests
-playwright.config.ts
+**/playwright.config.ts
 
 **/charts
 
