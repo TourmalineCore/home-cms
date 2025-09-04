@@ -26,6 +26,8 @@
 **/values.dev.yaml
 .env.example
 
+.eslint.config.mts
+
 **/dist
 **/playwright-report
 **/playwright-tests
