@@ -32,6 +32,8 @@
     "dist/",
     ".cache/",
     ".tmp/",
+    "playwright-tests/**",
+    "playwright.config.ts",
 
     // Do not include admin files in the server compilation
     "src/admin/",
