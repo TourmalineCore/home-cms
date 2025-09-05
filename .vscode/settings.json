@@ -4,9 +4,6 @@
       "javascript",
       "typescript", 
     ],
-    "[typescript]": {
-      "editor.formatOnSave": true
-    },
     "files.eol": "\n",
     "editor.tabSize": 2,
     "editor.codeActionsOnSave": {
