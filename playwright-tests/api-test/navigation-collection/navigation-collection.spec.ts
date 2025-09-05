@@ -1,6 +1,6 @@
 import { ApiTestFixtures, expect, test } from "../api-test-fixtures";
 import { NavigationSchema } from "./navigation-collection-schema";
-import { cleanupNavigationRecord, createNavigationRecord, getNavigationData, NAVIGATION_ENDPOINT } from "./navigation-collection-api";
+import { cleanupNavigationRecord, createNavigationRecordApi, getNavigationData, NAVIGATION_ENDPOINT } from "./navigation-collection-api";
 
 test.describe(`Navigation response tests`, () => {
   test.beforeEach(async ({
@@ -10,7 +10,7 @@ test.describe(`Navigation response tests`, () => {
       apiRequest
     });
 
-    await createNavigationRecord({
+    await createNavigationRecordApi({
       apiRequest
     });
   });

@@ -2,7 +2,6 @@ import qs from "qs";
 import { LayoutSchema } from "./layout-single-type-schema";
 import { cleanupLayoutSingleTypeApi, LAYOUT_ENDPOINT, updateLayoutSingleTypeApi } from "./layout-single-type-api";
 import { ApiTestFixtures, expect, test } from "../api-test-fixtures";
-import { cleanupFooterNavigationRecord } from "../footer-navigation-collection/footer-navigation-collection-api";
 import { cleanupSocialNetworkRecord } from "../social-networks-collection/social-networks-collection-api";
 
 test.describe(`Layout single type response tests`, () => {
@@ -14,10 +13,6 @@ test.describe(`Layout single type response tests`, () => {
     });
 
     await cleanupSocialNetworkRecord({
-      apiRequest
-    })
-
-    await cleanupFooterNavigationRecord({
       apiRequest
     })
     
@@ -34,10 +29,6 @@ test.describe(`Layout single type response tests`, () => {
     });
 
     await cleanupSocialNetworkRecord({
-      apiRequest
-    })
-
-    await cleanupFooterNavigationRecord({
       apiRequest
     })
   });

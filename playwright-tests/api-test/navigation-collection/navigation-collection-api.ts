@@ -5,9 +5,10 @@ import { API_SMOKE_NAME_PREFIX } from "../../constants";
 
 const NAME = `${API_SMOKE_NAME_PREFIX} Services`;
 const LINK = `/services`;
+
 export const NAVIGATION_ENDPOINT = `/api/navigations`;
 
-export async function createNavigationRecord({
+export async function createNavigationRecordApi({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];

@@ -1,9 +1,8 @@
 import { expect } from "@playwright/test";
 import { HttpStatusCode } from "../../enums";
 import { ApiTestFixtures } from "../api-test-fixtures";
-import { createNavigationRecord } from "../navigation-collection/navigation-collection-api";
+import { createNavigationRecordApi } from "../navigation-collection/navigation-collection-api";
 import { createSocialNetworkRecord } from "../social-networks-collection/social-networks-collection-api";
-import { createFooterNavigationRecord } from "../footer-navigation-collection/footer-navigation-collection-api";
 
 export const LAYOUT_ENDPOINT = `/api/layout`;
 
@@ -17,11 +16,7 @@ export async function updateLayoutSingleTypeApi({
       apiRequest
     });
 
-    const headerNavigationId = await createNavigationRecord({
-      apiRequest
-    });
-    
-    const footerNavigationId = await createFooterNavigationRecord({
+    const navigationId = await createNavigationRecordApi({
       apiRequest
     });
     
@@ -33,7 +28,7 @@ export async function updateLayoutSingleTypeApi({
           header: {
             buttonLabel: `buttonLabel`,
             emailCaption: `emailCaption`,
-            navigationLists: [headerNavigationId],
+            navigationLists: [navigationId],
             socialLinks: [socialLinkId]
           },
           footer: {
@@ -42,7 +37,7 @@ export async function updateLayoutSingleTypeApi({
               {
                 caption: `caption`,
                 isSocialNetworks: false,
-                links: [footerNavigationId],
+                links: [navigationId],
               },
               {
                 caption: `caption 2`,

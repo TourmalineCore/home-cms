@@ -30,12 +30,43 @@
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isMultiLevelNavigation"
+            },
+            false
+          ]
+        }
+      },
+      "required": true
     },
     "navItems": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::navigation.navigation"
+      "target": "api::navigation.navigation",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isMultiLevelNavigation"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "isMultiLevelNavigation": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "default": false
     }
   }
 }

@@ -16,7 +16,7 @@
     "links": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::footer-navigation.footer-navigation",
+      "target": "api::navigation.navigation",
       "conditions": {
         "visible": {
           "!=": [
