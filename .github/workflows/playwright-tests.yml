@@ -92,8 +92,8 @@ jobs:
         run: npm run playwright:run --reporter=html 
 
         env:
-          FRONTEND_URL: http://localhost:40110 
-          SERVER_URL: 'http://localhost:40110/cms'
+          FRONTEND_URL: http://localhost:40120 
+          SERVER_URL: 'http://localhost:40120/cms'
     
       - name: Upload HTML report
         uses: actions/upload-artifact@v4
