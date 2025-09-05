@@ -133,3 +133,5 @@ build
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+/playwright-report/playwright-test-results
+/playwright-tests/playwright-test-results
