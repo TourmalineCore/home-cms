@@ -29,7 +29,7 @@ export const test = base.extend<ApiTestFixtures>({
       options: PlaywrightRequestOptions = {}
     ) => {
       const baseUrl = process.env.SERVER_URL || `http://localhost:1337`;
-      console.log(baseUrl)
+
       const method = options.method || `get`;
       const response = await apiContext[method](`${baseUrl}${endpoint}`, options)
       return response;

@@ -43,7 +43,7 @@ export async function cleanupNavigationRecord({
     const navigationList = await getNavigationData({
       apiRequest
     });
-
+    console.log(navigationList)
     const navigation = navigationList.find((navigation) => navigation.name === NAME);
 
     if (navigation) {
