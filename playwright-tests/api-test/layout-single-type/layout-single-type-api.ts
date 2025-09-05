@@ -1,8 +1,8 @@
 import { expect } from "@playwright/test";
 import { HttpStatusCode } from "../../enums";
 import { ApiTestFixtures } from "../api-test-fixtures";
-import { createNavigationRecordApi } from "../navigation-collection/navigation-collection-api";
-import { createSocialNetworkRecord } from "../social-networks-collection/social-networks-collection-api";
+import { createNavigationApi } from "../navigation-collection/navigation-collection-api";
+import { createSocialNetworkApi } from "../social-networks-collection/social-networks-collection-api";
 
 export const LAYOUT_ENDPOINT = `/api/layout`;
 
@@ -12,11 +12,11 @@ export async function updateLayoutSingleTypeApi({
   apiRequest: ApiTestFixtures[`apiRequest`];
 }) {
   try {
-    const socialLinkId = await createSocialNetworkRecord({
+    const socialLinkId = await createSocialNetworkApi({
       apiRequest
     });
 
-    const navigationId = await createNavigationRecordApi({
+    const navigationId = await createNavigationApi({
       apiRequest
     });
     

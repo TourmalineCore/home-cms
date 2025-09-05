@@ -1,16 +1,16 @@
 import { ApiTestFixtures, expect, test } from "../api-test-fixtures";
 import { NavigationSchema } from "./navigation-collection-schema";
-import { cleanupNavigationRecord, createNavigationRecordApi, getNavigationData, NAVIGATION_ENDPOINT } from "./navigation-collection-api";
+import { cleanupNavigationApi, createNavigationApi, getNavigationData, NAVIGATION_ENDPOINT } from "./navigation-collection-api";
 
 test.describe(`Navigation response tests`, () => {
   test.beforeEach(async ({
     apiRequest
   }) => {
-    await cleanupNavigationRecord({
+    await cleanupNavigationApi({
       apiRequest
     });
 
-    await createNavigationRecordApi({
+    await createNavigationApi({
       apiRequest
     });
   });
@@ -18,7 +18,7 @@ test.describe(`Navigation response tests`, () => {
   test.afterEach(async ({
     apiRequest
   }) => {
-    await cleanupNavigationRecord({
+    await cleanupNavigationApi({
       apiRequest
     });
   }); 

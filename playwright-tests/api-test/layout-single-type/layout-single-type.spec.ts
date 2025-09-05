@@ -2,7 +2,8 @@ import qs from "qs";
 import { LayoutSchema } from "./layout-single-type-schema";
 import { cleanupLayoutSingleTypeApi, LAYOUT_ENDPOINT, updateLayoutSingleTypeApi } from "./layout-single-type-api";
 import { ApiTestFixtures, expect, test } from "../api-test-fixtures";
-import { cleanupSocialNetworkRecord } from "../social-networks-collection/social-networks-collection-api";
+import { cleanupSocialNetworkApi } from "../social-networks-collection/social-networks-collection-api";
+import { cleanupNavigationApi } from "../navigation-collection/navigation-collection-api";
 
 test.describe(`Layout single type response tests`, () => {
   test.beforeEach(async ({
@@ -12,7 +13,11 @@ test.describe(`Layout single type response tests`, () => {
       apiRequest 
     });
 
-    await cleanupSocialNetworkRecord({
+    await cleanupSocialNetworkApi({
+      apiRequest
+    })
+
+    await cleanupNavigationApi({
       apiRequest
     })
     
@@ -28,7 +33,11 @@ test.describe(`Layout single type response tests`, () => {
       apiRequest 
     });
 
-    await cleanupSocialNetworkRecord({
+    await cleanupNavigationApi({
+      apiRequest
+    })
+
+    await cleanupSocialNetworkApi({
       apiRequest
     })
   });
@@ -55,6 +64,7 @@ async function checkLayoutSingleTypeResponseTest({
       `header.navigationLists.navItems`,
       `footer.navigationLists`,
       `footer.navigationLists.links`,
+      `footer.navigationLists.links.navItems`,
       `footer.navigationLists.socialLinks`,
     ],
   };

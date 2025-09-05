@@ -8,7 +8,7 @@ const NAME = `${API_SMOKE_NAME_PREFIX} Social Network`;
 const LINK = `/socialNetworkLink`;
 export const SOCIAL_NETWORKS_ENDPOINT = `/api/social-networks`;
 
-export async function createSocialNetworkRecord({
+export async function createSocialNetworkApi({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
@@ -34,7 +34,7 @@ export async function createSocialNetworkRecord({
   }
 }
 
-export async function cleanupSocialNetworkRecord({
+export async function cleanupSocialNetworkApi({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];

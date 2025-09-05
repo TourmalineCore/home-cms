@@ -8,7 +8,7 @@ const LINK = `/services`;
 
 export const NAVIGATION_ENDPOINT = `/api/navigations`;
 
-export async function createNavigationRecordApi({
+export async function createNavigationApi({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
@@ -35,7 +35,7 @@ export async function createNavigationRecordApi({
   }
 }
 
-export async function cleanupNavigationRecord({
+export async function cleanupNavigationApi({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];

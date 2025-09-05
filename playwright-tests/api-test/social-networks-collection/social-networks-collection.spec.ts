@@ -1,16 +1,16 @@
 import { ApiTestFixtures, expect, test } from "../api-test-fixtures";
 import { SocialNetworksSchema } from "./social-networks-collection-schema";
-import { cleanupSocialNetworkRecord, createSocialNetworkRecord, getSocialNetworksData, SOCIAL_NETWORKS_ENDPOINT } from "./social-networks-collection-api";
+import { cleanupSocialNetworkApi, createSocialNetworkApi, getSocialNetworksData, SOCIAL_NETWORKS_ENDPOINT } from "./social-networks-collection-api";
 
 test.describe(`Social networks response tests`, () => {
   test.beforeEach(async ({
     apiRequest
   }) => {
-    await cleanupSocialNetworkRecord({
+    await cleanupSocialNetworkApi({
       apiRequest
     });
 
-    await createSocialNetworkRecord({
+    await createSocialNetworkApi({
       apiRequest
     });
   });
@@ -18,7 +18,7 @@ test.describe(`Social networks response tests`, () => {
   test.afterEach(async ({
     apiRequest
   }) => {
-    await cleanupSocialNetworkRecord({
+    await cleanupSocialNetworkApi({
       apiRequest
     });
   }); 
