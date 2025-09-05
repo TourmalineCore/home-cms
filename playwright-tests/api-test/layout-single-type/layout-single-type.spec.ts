@@ -4,6 +4,7 @@ import { cleanupLayoutSingleTypeApi, LAYOUT_ENDPOINT, updateLayoutSingleTypeApi 
 import { ApiTestFixtures, expect, test } from "../api-test-fixtures";
 import { cleanupFooterNavigationRecord } from "../footer-navigation-collection/footer-navigation-collection-api";
 import { cleanupSocialNetworkRecord } from "../social-networks-collection/social-networks-collection-api";
+import { cleanupNavigationRecord } from "../navigation-collection/navigation-collection-api";
 
 test.describe(`Layout single type response tests`, () => {
   test.beforeEach(async ({
@@ -15,11 +16,15 @@ test.describe(`Layout single type response tests`, () => {
 
     await cleanupSocialNetworkRecord({
       apiRequest
-    })
+    });
+    
+    await cleanupNavigationRecord({
+      apiRequest
+    });
 
     await cleanupFooterNavigationRecord({
       apiRequest
-    })
+    });
     
     await updateLayoutSingleTypeApi({
       apiRequest 
@@ -33,13 +38,17 @@ test.describe(`Layout single type response tests`, () => {
       apiRequest 
     });
 
+    await cleanupNavigationRecord({
+      apiRequest
+    });
+
     await cleanupSocialNetworkRecord({
       apiRequest
-    })
+    });
 
     await cleanupFooterNavigationRecord({
       apiRequest
-    })
+    });
   });
 
   test(`
