@@ -1,0 +1,20 @@
+name: Publish Docker image
+
+on:
+  push:
+    branches:
+      - master
+      - feature/*
+  # to allow to wait for a docker image to be published to proceed in another workflow
+  workflow_call:
+
+jobs:
+  push_to_registry:
+    uses: TourmalineCore/home-github-workflows/.github/workflows/docker-build-and-push.yml@master
+    with:
+        # Build-args is used to define variables that will be used in image
+        build-args: |
+          # this perfectly explains why this is needed https://github.com/strapi/strapi/issues/13889#issuecomment-1516194973
+          SERVER_URL=/cms
+    # without this it cannot login to the registry
+    secrets: inherit
