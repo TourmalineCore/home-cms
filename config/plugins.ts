@@ -39,6 +39,23 @@ export default ({
       },
     },
   },
+  'preview-button': {
+    config: {
+      contentTypes: [
+        {
+          uid: `api::layout.layout`,
+          draft: {
+            url: `${env(`FRONTEND_URL`)}/api/preview`,
+            query: {
+              slug: ``,
+              secret: env(`PREVIEW_SECRET`)
+            },
+            openTarget: `StrapiPreviewPage`,
+          },
+        },
+      ]
+    }
+  },
   'strapi-cache': {
     enabled: true,
     config: {

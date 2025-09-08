@@ -4,12 +4,10 @@
       "javascript",
       "typescript", 
     ],
-    "[typescript]": {
-      "editor.formatOnSave": true
-    },
     "files.eol": "\n",
     "editor.tabSize": 2,
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit",
+      "source.removeUnusedImports": "explicit"
     },
 } 
