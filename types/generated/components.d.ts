@@ -51,6 +51,18 @@ export interface SharedHeader extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedHero extends Struct.ComponentSchema {
+  collectionName: 'components_shared_heroes';
+  info: {
+    displayName: 'hero';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    gallery: Schema.Attribute.Media<'images' | 'files' | 'videos', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedOpenGraph extends Struct.ComponentSchema {
   collectionName: 'components_shared_open_graphs';
   info: {
@@ -97,7 +109,6 @@ export interface SharedSeo extends Struct.ComponentSchema {
         maxLength: 60;
       }>;
     metaViewport: Schema.Attribute.String;
-    openGraph: Schema.Attribute.Component<'shared.open-graph', false>;
     structuredData: Schema.Attribute.JSON;
   };
 }
@@ -108,6 +119,7 @@ declare module '@strapi/strapi' {
       'footer.footer-navigation-list': FooterFooterNavigationList;
       'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
+      'shared.hero': SharedHero;
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;
     }

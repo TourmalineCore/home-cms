@@ -1,4 +1,4 @@
-import { ApiTestFixtures, expect, test } from "../api-test-fixtures";
+import { ApiTestFixtures, expect, test } from "../../api-test-fixtures";
 import { NavigationSchema } from "./navigation-collection-schema";
 import { cleanupNavigationApi, createNavigationApi, getNavigationData, NAVIGATION_ENDPOINT } from "./navigation-collection-api";
 
