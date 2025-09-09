@@ -32,6 +32,9 @@
     "dist/",
     ".cache/",
     ".tmp/",
+    "playwright-tests/**",
+    "playwright.config.ts",
+    "eslint.config.mts",
 
     // Do not include admin files in the server compilation
     "src/admin/",
