@@ -13,7 +13,6 @@
     },
     "metaDescription": {
       "type": "string",
-      "minLength": 50,
       "maxLength": 160,
       "required": true
     },

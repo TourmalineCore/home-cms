@@ -40,7 +40,7 @@ async function checkHomepageSingleTypeResponseTest({
   apiRequest: ApiTestFixtures[`apiRequest`];
 }) {
   const queryParams = {
-    populate: [`blocks.gallery`]
+    populate: [`blocks.gallery`, `seo`]
   };
   
   const homepageResponse = await apiRequest(`${HOMEPAGE_ENDPOINT}?${qs.stringify(queryParams)}`);

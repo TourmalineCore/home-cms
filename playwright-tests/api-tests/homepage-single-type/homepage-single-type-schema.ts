@@ -15,7 +15,15 @@ const HeroSchema = z.object({
 export const HomepageSchema = z.object({
   id: z.number(),
   blocks: z.array(
-    HeroSchema
-  )
+    z.union(  
+      [HeroSchema]
+    )
+  ),
+  seo: z.object({
+    metaTitle: z.string(),
+    metaDescription: z.string(),
+    keywords: z.string()
+      .nullish()
+  })
 });
 

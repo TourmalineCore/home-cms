@@ -30,7 +30,11 @@ export async function updateHomepageSingleTypeApi({
                 }
               ],
             },
-          ]
+          ],
+          seo: {
+            metaTitle: `metaTitle`,
+            metaDescription: `metaDescription`
+          }
         },
       }
     });
