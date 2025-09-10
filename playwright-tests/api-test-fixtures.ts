@@ -43,6 +43,6 @@ export const test = base.extend<ApiTestFixtures>({
 });
 
 export {
+  Page,
   expect,
-  Page
 } from '@playwright/test';

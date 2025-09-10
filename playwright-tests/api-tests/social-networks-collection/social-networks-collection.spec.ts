@@ -1,4 +1,4 @@
-import { ApiTestFixtures, expect, test } from "../api-test-fixtures";
+import { ApiTestFixtures, expect, test } from "../../api-test-fixtures";
 import { SocialNetworksSchema } from "./social-networks-collection-schema";
 import { cleanupSocialNetworkApi, createSocialNetworkApi, getSocialNetworksData, SOCIAL_NETWORKS_ENDPOINT } from "./social-networks-collection-api";
 

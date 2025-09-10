@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
 import { HttpStatusCode } from "../../enums";
-import { ApiTestFixtures } from "../api-test-fixtures";
+import { ApiTestFixtures } from "../../api-test-fixtures";
 import { createNavigationApi } from "../navigation-collection/navigation-collection-api";
 import { createSocialNetworkApi } from "../social-networks-collection/social-networks-collection-api";
 

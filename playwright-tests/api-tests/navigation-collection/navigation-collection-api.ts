@@ -1,6 +1,5 @@
-import { expect } from "@playwright/test";
 import { HttpStatusCode } from "../../enums";
-import { ApiTestFixtures } from "../api-test-fixtures";
+import { ApiTestFixtures, expect } from "../../api-test-fixtures";
 import { API_SMOKE_NAME_PREFIX } from "../../constants";
 
 const NAME = `${API_SMOKE_NAME_PREFIX} Services`;

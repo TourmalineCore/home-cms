@@ -37,10 +37,21 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: `chromium`,
+      name: `setup`,  
+      testMatch: /global\.setup\.ts/,
+      teardown: `removeFiles`,
+    },
+    {
+      name: `removeFiles`,
+      testMatch: /global\.teardown\.ts/,
+    },
+    {
+      name: `ApiTests`,
       use: {
-        ...devices[`Desktop Chrome`]
+        ...devices[`Desktop Chrome`],
       },
+      testMatch: `**/api-tests/**/*.spec.*`,
+      dependencies: [`setup`],
     },
   ],
 

@@ -17,8 +17,7 @@ ENV SERVER_URL=${SERVER_URL}
 WORKDIR /opt/
 COPY package.json package-lock.json ./
 RUN npm install -g node-gyp
-RUN npm config set fetch-retry-maxtimeout 600000 -g && npm ci --only=production
-
+RUN npm config set fetch-retry-maxtimeout 600000 -g && npm ci
 RUN npm install esbuild@0.19.11 --save-exact
 
 WORKDIR /opt/app

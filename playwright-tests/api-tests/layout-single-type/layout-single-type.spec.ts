@@ -1,7 +1,7 @@
 import qs from "qs";
 import { LayoutSchema } from "./layout-single-type-schema";
 import { cleanupLayoutSingleTypeApi, LAYOUT_ENDPOINT, updateLayoutSingleTypeApi } from "./layout-single-type-api";
-import { ApiTestFixtures, expect, test } from "../api-test-fixtures";
+import { ApiTestFixtures, expect, test } from "../../api-test-fixtures";
 import { cleanupSocialNetworkApi } from "../social-networks-collection/social-networks-collection-api";
 import { cleanupNavigationApi } from "../navigation-collection/navigation-collection-api";
 
