@@ -18,7 +18,7 @@ export default defineConfig([
       },
       parser: tseslint.parser,
       parserOptions: {
-        project: true,
+        project: `./tsconfig-lint.json`,
         tsconfigRootDir: __dirname,
       },
     },
