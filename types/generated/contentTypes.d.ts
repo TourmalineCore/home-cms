@@ -389,7 +389,9 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<['shared.hero']> &
+    blocks: Schema.Attribute.DynamicZone<
+      ['shared.hero', 'shared.featured-cards-list']
+    > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
