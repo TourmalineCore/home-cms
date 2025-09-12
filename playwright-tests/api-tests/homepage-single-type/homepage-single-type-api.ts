@@ -2,6 +2,7 @@
 import { HttpStatusCode } from "../../enums";
 import { getFileIdByName } from "../../helpers";
 import { ApiTestFixtures, expect } from "../../api-test-fixtures";
+import { getHomeMock } from "./homepage-mocks";
 
 export const HOMEPAGE_ENDPOINT = `/api/homepage`;
 
@@ -18,24 +19,9 @@ export async function updateHomepageSingleTypeApi({
     const response = await apiRequest(HOMEPAGE_ENDPOINT, {
       method: `put`,
       data: {
-        data: {
-          blocks: [
-            {
-              __component: `shared.hero`,
-              title: `title`,
-              description: `description`,
-              gallery: [
-                {
-                  id: imageId
-                }
-              ],
-            },
-          ],
-          seo: {
-            metaTitle: `metaTitle`,
-            metaDescription: `metaDescription`
-          }
-        },
+        data: getHomeMock({
+          imageId
+        }),
       }
     });
 
