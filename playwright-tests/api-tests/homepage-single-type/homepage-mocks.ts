@@ -85,6 +85,7 @@ function getCollageWithTitleMock({
     images: [imageId, imageId]
   }
 }
+
 function getSignpostMultipleMock({
   imageId
 }) {
@@ -106,6 +107,15 @@ function getSignpostMultipleMock({
   }
 }
 
+function getSingleImageMock({
+  imageId
+}) {
+  return {
+    __component: `shared.single-image`,
+    image: imageId
+  }
+}
+
 export function getHomeMock({
   imageId
 }: {
@@ -123,6 +133,9 @@ export function getHomeMock({
         imageId
       }),
       getSignpostMultipleMock({
+        imageId
+      }),
+      getSingleImageMock({
         imageId
       })
     ],

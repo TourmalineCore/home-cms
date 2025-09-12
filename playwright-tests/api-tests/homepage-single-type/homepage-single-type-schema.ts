@@ -103,6 +103,13 @@ const SignpostMultipleSchema = z.object({
     .nullish()
 })
 
+const SingleImageSchema = z.object({
+  __component: z.literal(`shared.single-image`),
+  image: z.object({
+    url: z.string()
+  })
+})
+
 export const HomepageSchema = z.object({
   id: z.number(),
   blocks: z.array(
@@ -113,6 +120,7 @@ export const HomepageSchema = z.object({
         CollageWithTitleSchema,
         FeaturedCardsListSchema,
         SignpostMultipleSchema,
+        SingleImageSchema
       ]
     )
   ),
