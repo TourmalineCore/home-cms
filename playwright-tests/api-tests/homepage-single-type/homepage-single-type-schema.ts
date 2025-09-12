@@ -75,12 +75,25 @@ const FeaturedCardsListSchema = z.object({
     }))
 });
 
+const CollageWithTitleSchema = z.object({
+  __component: z.literal(`shared.collage-with-title`),
+  title: z.string(),
+  images: z.array(z.object({
+    url: z.string()
+  }))
+})
+
 export const HomepageSchema = z.object({
   id: z.number(),
   blocks: z.array(
     z.discriminatedUnion(
       `__component`,
-      [HeroSchema, FeaturedCardsListSchema]
+      [
+        HeroSchema,
+        CollageWithTitleSchema,
+        FeaturedCardsListSchema,
+   
+      ]
     )
   ),
   seo: z.object({

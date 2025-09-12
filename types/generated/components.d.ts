@@ -74,6 +74,17 @@ export interface FooterFooterNavigationList extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedCollageWithTitle extends Struct.ComponentSchema {
+  collectionName: 'components_shared_collage_with_titles';
+  info: {
+    displayName: 'collageWithTitle';
+  };
+  attributes: {
+    images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedFeaturedCard extends Struct.ComponentSchema {
   collectionName: 'components_shared_featured_cards';
   info: {
@@ -233,6 +244,7 @@ declare module '@strapi/strapi' {
       'featured-card.wide-card': FeaturedCardWideCard;
       'featured-card.wide-card-items': FeaturedCardWideCardItems;
       'footer.footer-navigation-list': FooterFooterNavigationList;
+      'shared.collage-with-title': SharedCollageWithTitle;
       'shared.featured-card': SharedFeaturedCard;
       'shared.featured-cards-list': SharedFeaturedCardsList;
       'shared.footer': SharedFooter;

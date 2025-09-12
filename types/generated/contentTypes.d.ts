@@ -390,7 +390,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   };
   attributes: {
     blocks: Schema.Attribute.DynamicZone<
-      ['shared.hero', 'shared.featured-cards-list']
+      ['shared.hero', 'shared.featured-cards-list', 'shared.collage-with-title']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{

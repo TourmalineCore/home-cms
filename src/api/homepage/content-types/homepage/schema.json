@@ -24,7 +24,8 @@
       },
       "components": [
         "shared.hero",
-        "shared.featured-cards-list"
+        "shared.featured-cards-list",
+        "shared.collage-with-title"
       ],
       "required": true
     },
