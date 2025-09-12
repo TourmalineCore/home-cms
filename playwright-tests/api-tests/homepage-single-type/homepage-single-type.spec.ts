@@ -48,6 +48,7 @@ async function checkHomepageSingleTypeResponseTest({
       `blocks.featuredCards.wideCard.wideCardItems.icon`,
       `blocks.featuredCards.wideCard.link`,
       `blocks.images`,
+      `blocks.image`,
       `seo`
     ]
   };

@@ -252,6 +252,16 @@ export interface SharedSignpostMultiple extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSingleImage extends Struct.ComponentSchema {
+  collectionName: 'components_shared_single_images';
+  info: {
+    displayName: 'singleImage';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedText extends Struct.ComponentSchema {
   collectionName: 'components_shared_texts';
   info: {
@@ -281,6 +291,7 @@ declare module '@strapi/strapi' {
       'shared.seo': SharedSeo;
       'shared.signpost': SharedSignpost;
       'shared.signpost-multiple': SharedSignpostMultiple;
+      'shared.single-image': SharedSingleImage;
       'shared.text': SharedText;
     }
   }
