@@ -47,13 +47,14 @@ async function checkHomepageSingleTypeResponseTest({
       `blocks.featuredCards.cardWithImage.image`,
       `blocks.featuredCards.wideCard.wideCardItems.icon`,
       `blocks.featuredCards.wideCard.link`,
+      `blocks.images`,
       `seo`
     ]
   };
   
   const homepageResponse = await apiRequest(`${HOMEPAGE_ENDPOINT}?${qs.stringify(queryParams)}`);
   const homepageData = await homepageResponse.json();
-
+  
   await expect(() => {
     HomepageSchema.parse(homepageData.data)
   }, `Homepage response is correct`)

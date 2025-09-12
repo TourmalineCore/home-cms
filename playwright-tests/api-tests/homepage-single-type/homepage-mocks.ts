@@ -76,6 +76,16 @@ function getFeaturedCardsListMock({
   }
 }
 
+function getCollageWithTitleMock({
+  imageId
+}) {
+  return {
+    __component: `shared.collage-with-title`,
+    title: `collage title`,
+    images: [imageId, imageId]
+  }
+}
+
 export function getHomeMock({
   imageId
 }: {
@@ -87,6 +97,9 @@ export function getHomeMock({
         imageId
       }),
       getFeaturedCardsListMock({
+        imageId
+      }),
+      getCollageWithTitleMock({
         imageId
       })
     ],
