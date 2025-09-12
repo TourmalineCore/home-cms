@@ -53,6 +53,17 @@ export default ({
             openTarget: `StrapiPreviewPage`,
           },
         },
+        {
+          uid: `api::homepage.homepage`,
+          draft: {
+            url: `${env(`FRONTEND_URL`)}/api/preview`,
+            query: {
+              slug: ``,
+              secret: env(`PREVIEW_SECRET`)
+            },
+            openTarget: `StrapiPreviewPage`,
+          },
+        },
       ]
     }
   },

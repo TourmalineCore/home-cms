@@ -23,7 +23,8 @@
         }
       },
       "components": [
-        "shared.hero"
+        "shared.hero",
+        "shared.featured-cards-list"
       ],
       "required": true
     },
