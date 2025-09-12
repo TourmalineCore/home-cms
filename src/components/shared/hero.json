@@ -17,7 +17,6 @@
       "multiple": true,
       "allowedTypes": [
         "images",
-        "files",
         "videos"
       ]
     }
