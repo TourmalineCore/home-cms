@@ -25,7 +25,8 @@
       "components": [
         "shared.hero",
         "shared.featured-cards-list",
-        "shared.collage-with-title"
+        "shared.collage-with-title",
+        "shared.signpost-multiple"
       ],
       "required": true
     },

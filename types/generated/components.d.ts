@@ -226,6 +226,32 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSignpost extends Struct.ComponentSchema {
+  collectionName: 'components_shared_signposts';
+  info: {
+    displayName: 'signpost';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    link: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedSignpostMultiple extends Struct.ComponentSchema {
+  collectionName: 'components_shared_signpost_multiples';
+  info: {
+    displayName: 'signpostMultiple';
+  };
+  attributes: {
+    link: Schema.Attribute.Component<'shared.link', false>;
+    signposts: Schema.Attribute.Component<'shared.signpost', true> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedText extends Struct.ComponentSchema {
   collectionName: 'components_shared_texts';
   info: {
@@ -253,6 +279,8 @@ declare module '@strapi/strapi' {
       'shared.link': SharedLink;
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;
+      'shared.signpost': SharedSignpost;
+      'shared.signpost-multiple': SharedSignpostMultiple;
       'shared.text': SharedText;
     }
   }
