@@ -83,6 +83,26 @@ const CollageWithTitleSchema = z.object({
   }))
 })
 
+
+const SignpostMultipleSchema = z.object({
+  __component: z.literal(`shared.signpost-multiple`),
+  title: z.string(),
+  link: z.object({
+    text: z.string(),
+    url: z.string(),
+  })
+    .nullish(),
+  signposts: z.array(z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    link: z.string(),
+    image: z.object({
+      url: z.string()
+    })
+  }))
+    .nullish()
+})
+
 export const HomepageSchema = z.object({
   id: z.number(),
   blocks: z.array(
@@ -92,7 +112,7 @@ export const HomepageSchema = z.object({
         HeroSchema,
         CollageWithTitleSchema,
         FeaturedCardsListSchema,
-   
+        SignpostMultipleSchema,
       ]
     )
   ),

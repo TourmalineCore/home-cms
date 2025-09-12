@@ -85,6 +85,26 @@ function getCollageWithTitleMock({
     images: [imageId, imageId]
   }
 }
+function getSignpostMultipleMock({
+  imageId
+}) {
+  return {
+    __component: `shared.signpost-multiple`,
+    title: `Signpost Multiple title`,
+    link: {
+      text: `Signpost Multiple link`,
+      url: `/`
+    },
+    signposts: [
+      {
+        title: `signpost title`,
+        subtitle: `signpost subtitle`,
+        link: `/`,
+        image: imageId,
+      }
+    ]
+  }
+}
 
 export function getHomeMock({
   imageId
@@ -100,6 +120,9 @@ export function getHomeMock({
         imageId
       }),
       getCollageWithTitleMock({
+        imageId
+      }),
+      getSignpostMultipleMock({
         imageId
       })
     ],
