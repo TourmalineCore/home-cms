@@ -116,6 +116,47 @@ function getSingleImageMock({
   }
 }
 
+function getThreeColumnGridMock({
+  imageId
+}) {
+  return {
+    __component: `shared.three-column-grid`,
+    columnsWithContent: [
+      {
+        type: `image`,
+        columnWithImage: {
+          title: `We teach at the university`,
+          image: imageId,
+          markdownText: `We talk about the basics of web architecture`,
+        }
+      },
+      {
+        type: `repositories`,
+        columnWithRepositories: {
+          title: `We do open source`,
+          markdownText: `It is important for us to share experience`,
+          repositories: [
+            {
+              name: `to-dos`,
+              description: `description`,
+              link: `/`,
+              language: `C#`
+            }
+          ]
+        },
+      },
+      {
+        type: `text-and-date`,
+        columnWithTextAndDate: {
+          title: `We publish scientific research`,
+          text: `Мethod for determining`,
+          date: new Date(`2025-09-15`)
+        }
+      }
+    ]
+  }
+}
+
 export function getHomeMock({
   imageId
 }: {
@@ -136,6 +177,9 @@ export function getHomeMock({
         imageId
       }),
       getSingleImageMock({
+        imageId
+      }),
+      getThreeColumnGridMock({
         imageId
       })
     ],

@@ -109,6 +109,44 @@ const SingleImageSchema = z.object({
     url: z.string()
   })
 })
+const ColumnSchema = z.discriminatedUnion(`type`, [
+  z.object({
+    type: z.literal(`image`),
+    columnWithImage: z.object({
+      title: z.string(),
+      image: z.object({
+        url: z.string() 
+      }),
+      markdownText: z.string(),
+    }),
+  }),
+  z.object({
+    type: z.literal(`repositories`),
+    columnWithRepositories: z.object({
+      title: z.string(),
+      markdownText: z.string(),
+      repositories: z.array(z.object({
+        name: z.string(),
+        description: z.string(),
+        link: z.string(),
+        language: z.enum([`TypeScript`, `C#`]),
+      })),
+    }),
+  }),
+  z.object({
+    type: z.literal(`text-and-date`),
+    columnWithTextAndDate: z.object({
+      title: z.string(),
+      text: z.string(),
+      date: z.string(),
+    }),
+  }),
+]);
+
+const ThreeColumnGridSchema = z.object({
+  __component: z.literal(`shared.three-column-grid`),
+  columnsWithContent: z.array(ColumnSchema),
+});
 
 export const HomepageSchema = z.object({
   id: z.number(),
@@ -120,7 +158,8 @@ export const HomepageSchema = z.object({
         CollageWithTitleSchema,
         FeaturedCardsListSchema,
         SignpostMultipleSchema,
-        SingleImageSchema
+        SingleImageSchema,
+        ThreeColumnGridSchema
       ]
     )
   ),

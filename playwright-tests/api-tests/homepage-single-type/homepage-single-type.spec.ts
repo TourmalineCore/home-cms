@@ -49,6 +49,9 @@ async function checkHomepageSingleTypeResponseTest({
       `blocks.featuredCards.wideCard.link`,
       `blocks.images`,
       `blocks.image`,
+      `blocks.columnsWithContent.columnWithImage.image`,
+      `blocks.columnsWithContent.columnWithRepositories.repositories`,
+      `blocks.columnsWithContent.columnWithTextAndDate`,
       `seo`
     ]
   };
