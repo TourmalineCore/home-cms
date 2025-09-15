@@ -82,6 +82,16 @@ const CollageWithTitleSchema = z.object({
     url: z.string()
   }))
 })
+const CollageWithLinkSchema = z.object({
+  __component: z.literal(`shared.collage-with-link`),
+  link: z.object({
+    text: z.string(),
+    url: z.string(),
+  }),
+  images: z.array(z.object({
+    url: z.string()
+  }))
+})
 
 
 const SignpostMultipleSchema = z.object({
@@ -118,6 +128,7 @@ export const HomepageSchema = z.object({
       [
         HeroSchema,
         CollageWithTitleSchema,
+        CollageWithLinkSchema,
         FeaturedCardsListSchema,
         SignpostMultipleSchema,
         SingleImageSchema
