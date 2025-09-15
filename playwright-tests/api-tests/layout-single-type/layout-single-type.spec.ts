@@ -1,4 +1,3 @@
-import qs from "qs";
 import { LayoutSchema } from "./layout-single-type-schema";
 import { cleanupLayoutSingleTypeApi, LAYOUT_ENDPOINT, updateLayoutSingleTypeApi } from "./layout-single-type-api";
 import { ApiTestFixtures, expect, test } from "../../api-test-fixtures";
@@ -56,20 +55,8 @@ async function checkLayoutSingleTypeResponseTest({
   apiRequest
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
-}) {
-  const queryParams = {
-    populate: [
-      `header.socialLinks`,
-      `header.navigationLists`,
-      `header.navigationLists.navItems`,
-      `footer.navigationLists`,
-      `footer.navigationLists.links`,
-      `footer.navigationLists.links.navItems`,
-      `footer.navigationLists.socialLinks`,
-    ],
-  };
-  
-  const layoutResponse = await apiRequest(`${LAYOUT_ENDPOINT}?${qs.stringify(queryParams)}`);
+}) {  
+  const layoutResponse = await apiRequest(`${LAYOUT_ENDPOINT}?populate=all`);
   const layoutData = await layoutResponse.json();
   
   await expect(() => {
