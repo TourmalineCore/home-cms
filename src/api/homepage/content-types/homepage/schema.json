@@ -27,7 +27,8 @@
         "shared.featured-cards-list",
         "shared.collage-with-title",
         "shared.signpost-multiple",
-        "shared.single-image"
+        "shared.single-image",
+        "shared.collage-with-link"
       ],
       "required": true
     },
