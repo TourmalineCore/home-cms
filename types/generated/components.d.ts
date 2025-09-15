@@ -368,7 +368,13 @@ export interface SharedThreeColumnGrid extends Struct.ComponentSchema {
       'shared.column-with-content',
       true
     > &
-      Schema.Attribute.Required;
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
   };
 }
 

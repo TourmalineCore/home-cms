@@ -9,7 +9,8 @@
       "type": "component",
       "component": "shared.column-with-content",
       "repeatable": true,
-      "required": true
+      "required": true,
+      "max": 3
     }
   },
   "config": {}
