@@ -86,6 +86,19 @@ function getCollageWithTitleMock({
   }
 }
 
+function getCollageWithLinkMock({
+  imageId
+}) {
+  return {
+    __component: `shared.collage-with-link`,
+    link: {
+      text: `Collage with link`,
+      url: `/`
+    },
+    images: [imageId, imageId]
+  }
+}
+
 function getSignpostMultipleMock({
   imageId
 }) {
@@ -171,6 +184,9 @@ export function getHomeMock({
         imageId
       }),
       getCollageWithTitleMock({
+        imageId
+      }),
+      getCollageWithLinkMock({
         imageId
       }),
       getSignpostMultipleMock({

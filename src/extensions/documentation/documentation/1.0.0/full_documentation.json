@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-09-16T04:37:24.489Z"
+    "x-generation-date": "2025-09-16T05:10:03.392Z"
   },
   "x-strapi-config": {
     "plugins": []
@@ -1776,6 +1776,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/SharedThreeColumnGridComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedCollageWithLinkComponent"
                     }
                   ]
                 },
@@ -1787,7 +1790,8 @@
                     "shared.collage-with-title": "#/components/schemas/SharedCollageWithTitleComponent",
                     "shared.signpost-multiple": "#/components/schemas/SharedSignpostMultipleComponent",
                     "shared.single-image": "#/components/schemas/SharedSingleImageComponent",
-                    "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent"
+                    "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent",
+                    "shared.collage-with-link": "#/components/schemas/SharedCollageWithLinkComponent"
                   }
                 }
               },
@@ -1884,6 +1888,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/SharedThreeColumnGridComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedCollageWithLinkComponent"
                 }
               ]
             },
@@ -1895,7 +1902,8 @@
                 "shared.collage-with-title": "#/components/schemas/SharedCollageWithTitleComponent",
                 "shared.signpost-multiple": "#/components/schemas/SharedSignpostMultipleComponent",
                 "shared.single-image": "#/components/schemas/SharedSingleImageComponent",
-                "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent"
+                "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent",
+                "shared.collage-with-link": "#/components/schemas/SharedCollageWithLinkComponent"
               }
             }
           },
@@ -1971,6 +1979,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/SharedThreeColumnGridComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SharedCollageWithLinkComponent"
                       }
                     ]
                   },
@@ -1982,7 +1993,8 @@
                       "shared.collage-with-title": "#/components/schemas/SharedCollageWithTitleComponent",
                       "shared.signpost-multiple": "#/components/schemas/SharedSignpostMultipleComponent",
                       "shared.single-image": "#/components/schemas/SharedSingleImageComponent",
-                      "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent"
+                      "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent",
+                      "shared.collage-with-link": "#/components/schemas/SharedCollageWithLinkComponent"
                     }
                   }
                 },
@@ -3331,6 +3343,155 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SharedColumnWithContentComponent"
+            }
+          }
+        }
+      },
+      "SharedCollageWithLinkComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "shared.collage-with-link"
+            ]
+          },
+          "link": {
+            "$ref": "#/components/schemas/SharedLinkComponent"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "documentId": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {},
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {},
+                "related": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "documentId": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "folder": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "folderPath": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "publishedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "createdBy": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updatedBy": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "documentId": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
