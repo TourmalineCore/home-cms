@@ -1,5 +1,62 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ColumnWithContentColumnWithImage
+  extends Struct.ComponentSchema {
+  collectionName: 'components_column_with_content_column_with_images';
+  info: {
+    displayName: 'columnWithImage';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    markdownText: Schema.Attribute.RichText;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ColumnWithContentColumnWithRepositories
+  extends Struct.ComponentSchema {
+  collectionName: 'components_column_with_content_column_with_repositories';
+  info: {
+    displayName: 'columnWithRepositories';
+  };
+  attributes: {
+    markdownText: Schema.Attribute.RichText;
+    repositories: Schema.Attribute.Component<
+      'column-with-content.repository-card',
+      true
+    > &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ColumnWithContentColumnWithTextAndDate
+  extends Struct.ComponentSchema {
+  collectionName: 'components_column_with_content_column_with_text_and_dates';
+  info: {
+    displayName: 'columnWithTextAndDate';
+  };
+  attributes: {
+    date: Schema.Attribute.Date;
+    text: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ColumnWithContentRepositoryCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_column_with_content_repository_cards';
+  info: {
+    displayName: 'repositoryCard';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    language: Schema.Attribute.Enumeration<['TypeScript', 'C#']>;
+    link: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface FeaturedCardCardWithImage extends Struct.ComponentSchema {
   collectionName: 'components_featured_card_card_with_images';
   info: {
@@ -93,6 +150,35 @@ export interface SharedCollageWithTitle extends Struct.ComponentSchema {
   attributes: {
     images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedColumnWithContent extends Struct.ComponentSchema {
+  collectionName: 'components_shared_column_with_contents';
+  info: {
+    displayName: 'columnWithContent';
+  };
+  attributes: {
+    columnWithImage: Schema.Attribute.Component<
+      'column-with-content.column-with-image',
+      false
+    > &
+      Schema.Attribute.Required;
+    columnWithRepositories: Schema.Attribute.Component<
+      'column-with-content.column-with-repositories',
+      false
+    > &
+      Schema.Attribute.Required;
+    columnWithTextAndDate: Schema.Attribute.Component<
+      'column-with-content.column-with-text-and-date',
+      false
+    > &
+      Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<
+      ['image', 'repositories', 'text-and-date']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'image'>;
   };
 }
 
@@ -283,9 +369,33 @@ export interface SharedText extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedThreeColumnGrid extends Struct.ComponentSchema {
+  collectionName: 'components_shared_three_column_grids';
+  info: {
+    displayName: 'threeColumnGrid';
+  };
+  attributes: {
+    columnsWithContent: Schema.Attribute.Component<
+      'shared.column-with-content',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'column-with-content.column-with-image': ColumnWithContentColumnWithImage;
+      'column-with-content.column-with-repositories': ColumnWithContentColumnWithRepositories;
+      'column-with-content.column-with-text-and-date': ColumnWithContentColumnWithTextAndDate;
+      'column-with-content.repository-card': ColumnWithContentRepositoryCard;
       'featured-card.card-with-image': FeaturedCardCardWithImage;
       'featured-card.card-with-points': FeaturedCardCardWithPoints;
       'featured-card.wide-card': FeaturedCardWideCard;
@@ -293,6 +403,7 @@ declare module '@strapi/strapi' {
       'footer.footer-navigation-list': FooterFooterNavigationList;
       'shared.collage-with-link': SharedCollageWithLink;
       'shared.collage-with-title': SharedCollageWithTitle;
+      'shared.column-with-content': SharedColumnWithContent;
       'shared.featured-card': SharedFeaturedCard;
       'shared.featured-cards-list': SharedFeaturedCardsList;
       'shared.footer': SharedFooter;
@@ -305,6 +416,7 @@ declare module '@strapi/strapi' {
       'shared.signpost-multiple': SharedSignpostMultiple;
       'shared.single-image': SharedSingleImage;
       'shared.text': SharedText;
+      'shared.three-column-grid': SharedThreeColumnGrid;
     }
   }
 }

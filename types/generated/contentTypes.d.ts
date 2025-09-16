@@ -396,7 +396,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'shared.collage-with-title',
         'shared.signpost-multiple',
         'shared.single-image',
-        'shared.collage-with-link',
+        'shared.three-column-grid',
       ]
     > &
       Schema.Attribute.Required &
