@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-09-16T05:10:03.392Z"
+    "x-generation-date": "2025-09-16T11:17:29.282Z"
   },
   "x-strapi-config": {
     "plugins": []
@@ -1778,6 +1778,9 @@
                       "$ref": "#/components/schemas/SharedThreeColumnGridComponent"
                     },
                     {
+                      "$ref": "#/components/schemas/SharedShowcaseGridComponent"
+                    },
+                    {
                       "$ref": "#/components/schemas/SharedCollageWithLinkComponent"
                     }
                   ]
@@ -1791,6 +1794,7 @@
                     "shared.signpost-multiple": "#/components/schemas/SharedSignpostMultipleComponent",
                     "shared.single-image": "#/components/schemas/SharedSingleImageComponent",
                     "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent",
+                    "shared.showcase-grid": "#/components/schemas/SharedShowcaseGridComponent",
                     "shared.collage-with-link": "#/components/schemas/SharedCollageWithLinkComponent"
                   }
                 }
@@ -1890,6 +1894,9 @@
                   "$ref": "#/components/schemas/SharedThreeColumnGridComponent"
                 },
                 {
+                  "$ref": "#/components/schemas/SharedShowcaseGridComponent"
+                },
+                {
                   "$ref": "#/components/schemas/SharedCollageWithLinkComponent"
                 }
               ]
@@ -1903,6 +1910,7 @@
                 "shared.signpost-multiple": "#/components/schemas/SharedSignpostMultipleComponent",
                 "shared.single-image": "#/components/schemas/SharedSingleImageComponent",
                 "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent",
+                "shared.showcase-grid": "#/components/schemas/SharedShowcaseGridComponent",
                 "shared.collage-with-link": "#/components/schemas/SharedCollageWithLinkComponent"
               }
             }
@@ -1981,6 +1989,9 @@
                         "$ref": "#/components/schemas/SharedThreeColumnGridComponent"
                       },
                       {
+                        "$ref": "#/components/schemas/SharedShowcaseGridComponent"
+                      },
+                      {
                         "$ref": "#/components/schemas/SharedCollageWithLinkComponent"
                       }
                     ]
@@ -1994,6 +2005,7 @@
                       "shared.signpost-multiple": "#/components/schemas/SharedSignpostMultipleComponent",
                       "shared.single-image": "#/components/schemas/SharedSingleImageComponent",
                       "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent",
+                      "shared.showcase-grid": "#/components/schemas/SharedShowcaseGridComponent",
                       "shared.collage-with-link": "#/components/schemas/SharedCollageWithLinkComponent"
                     }
                   }
@@ -3344,6 +3356,228 @@
             "items": {
               "$ref": "#/components/schemas/SharedColumnWithContentComponent"
             }
+          }
+        }
+      },
+      "ShowcaseColumnShowcaseColumnWithMarkdownComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          }
+        }
+      },
+      "ShowcaseColumnShowcaseColumnWithMediaComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "media": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "documentId": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {},
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number",
+                "format": "float"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {},
+              "related": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "folder": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "folderPath": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "publishedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "createdBy": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "updatedBy": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "link": {
+            "type": "string"
+          },
+          "isNda": {
+            "type": "boolean"
+          },
+          "size": {
+            "type": "string",
+            "enum": [
+              "XS",
+              "S",
+              "M",
+              "L"
+            ]
+          }
+        }
+      },
+      "ShowcaseColumnShowcaseColumnsComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "media",
+              "markdown"
+            ]
+          },
+          "showcaseColumnWithMarkdown": {
+            "$ref": "#/components/schemas/ShowcaseColumnShowcaseColumnWithMarkdownComponent"
+          },
+          "showcaseColumnWithMedia": {
+            "$ref": "#/components/schemas/ShowcaseColumnShowcaseColumnWithMediaComponent"
+          }
+        }
+      },
+      "SharedShowcaseGridComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "shared.showcase-grid"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "showcaseColumns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShowcaseColumnShowcaseColumnsComponent"
+            }
+          },
+          "showOnMobile": {
+            "type": "boolean"
+          },
+          "anchorId": {
+            "type": "string"
           }
         }
       },
