@@ -28,7 +28,7 @@
         "shared.collage-with-title",
         "shared.signpost-multiple",
         "shared.single-image",
-        "shared.three-column-grid"
+        "shared.three-column-grid",
         "shared.collage-with-link"
       ],
       "required": true
