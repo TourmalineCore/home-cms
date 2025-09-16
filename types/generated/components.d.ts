@@ -81,8 +81,7 @@ export interface SharedCollageWithLink extends Struct.ComponentSchema {
   };
   attributes: {
     images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
-    link: Schema.Attribute.Component<'shared.link', false> &
-      Schema.Attribute.Required;
+    link: Schema.Attribute.Component<'shared.link', false>;
   };
 }
 
