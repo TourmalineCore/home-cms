@@ -119,6 +119,7 @@ const SingleImageSchema = z.object({
     url: z.string()
   })
 })
+
 const ColumnSchema = z.discriminatedUnion(`type`, [
   z.object({
     type: z.literal(`image`),
@@ -158,6 +159,37 @@ const ThreeColumnGridSchema = z.object({
   columnsWithContent: z.array(ColumnSchema),
 });
 
+const ShowcaseColumnSchema = z.discriminatedUnion(`type`, [
+  z.object({
+    type: z.literal(`media`),
+    showcaseColumnWithMedia: z.object({
+      title: z.string(),
+      media: z.object({
+        url: z.string() 
+      }),
+      description: z.string(),
+      link: z.string(),
+      isNda: z.boolean(),
+      size: z.string(),
+    }),
+  }),
+  z.object({
+    type: z.literal(`markdown`),
+    showcaseColumnWithMarkdown: z.object({
+      subtitle: z.string(),
+      markdown: z.string(),
+    }),
+  }),
+]);
+
+const ShowcaseGridSchema = z.object({
+  __component: z.literal(`shared.showcase-grid`),
+  title: z.string(),
+  showOnMobile: z.boolean(),
+  anchorId: z.string(),
+  showcaseColumns: z.array(ShowcaseColumnSchema),
+});
+
 export const HomepageSchema = z.object({
   id: z.number(),
   blocks: z.array(
@@ -170,7 +202,8 @@ export const HomepageSchema = z.object({
         FeaturedCardsListSchema,
         SignpostMultipleSchema,
         SingleImageSchema,
-        ThreeColumnGridSchema
+        ThreeColumnGridSchema,
+        ShowcaseGridSchema
       ]
     )
   ),
