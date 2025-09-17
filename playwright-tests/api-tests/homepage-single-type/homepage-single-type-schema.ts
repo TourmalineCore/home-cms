@@ -5,7 +5,7 @@ const HeroSchema = z.object({
   id: z.number(),
   title: z.string(),
   description: z.string(),
-  gallery: z.array(
+  media: z.array(
     z.object({
       id: z.number(),
       url: z.string(),
