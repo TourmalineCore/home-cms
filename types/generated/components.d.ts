@@ -323,6 +323,25 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedShowcaseGrid extends Struct.ComponentSchema {
+  collectionName: 'components_shared_showcase_grids';
+  info: {
+    displayName: 'showcaseGrid';
+  };
+  attributes: {
+    anchorId: Schema.Attribute.String;
+    showcaseColumns: Schema.Attribute.Component<
+      'showcase-column.showcase-columns',
+      true
+    > &
+      Schema.Attribute.Required;
+    showOnMobile: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedSignpost extends Struct.ComponentSchema {
   collectionName: 'components_shared_signposts';
   info: {
@@ -389,6 +408,57 @@ export interface SharedThreeColumnGrid extends Struct.ComponentSchema {
   };
 }
 
+export interface ShowcaseColumnShowcaseColumnWithMarkdown
+  extends Struct.ComponentSchema {
+  collectionName: 'components_showcase_column_showcase_column_with_markdowns';
+  info: {
+    displayName: 'showcaseColumnWithMarkdown';
+  };
+  attributes: {
+    markdown: Schema.Attribute.RichText & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.Text;
+  };
+}
+
+export interface ShowcaseColumnShowcaseColumnWithMedia
+  extends Struct.ComponentSchema {
+  collectionName: 'components_showcase_column_showcase_column_with_medias';
+  info: {
+    displayName: 'showcaseColumnWithMedia';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    isNda: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    link: Schema.Attribute.String;
+    media: Schema.Attribute.Media<'images' | 'videos'> &
+      Schema.Attribute.Required;
+    size: Schema.Attribute.Enumeration<['XS', 'S', 'M', 'L']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'M'>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface ShowcaseColumnShowcaseColumns extends Struct.ComponentSchema {
+  collectionName: 'components_showcase_column_showcase_columns';
+  info: {
+    displayName: 'showcaseColumns';
+  };
+  attributes: {
+    showcaseColumnWithMarkdown: Schema.Attribute.Component<
+      'showcase-column.showcase-column-with-markdown',
+      false
+    >;
+    showcaseColumnWithMedia: Schema.Attribute.Component<
+      'showcase-column.showcase-column-with-media',
+      false
+    >;
+    type: Schema.Attribute.Enumeration<['media', 'markdown']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'media'>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -412,11 +482,15 @@ declare module '@strapi/strapi' {
       'shared.link': SharedLink;
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;
+      'shared.showcase-grid': SharedShowcaseGrid;
       'shared.signpost': SharedSignpost;
       'shared.signpost-multiple': SharedSignpostMultiple;
       'shared.single-image': SharedSingleImage;
       'shared.text': SharedText;
       'shared.three-column-grid': SharedThreeColumnGrid;
+      'showcase-column.showcase-column-with-markdown': ShowcaseColumnShowcaseColumnWithMarkdown;
+      'showcase-column.showcase-column-with-media': ShowcaseColumnShowcaseColumnWithMedia;
+      'showcase-column.showcase-columns': ShowcaseColumnShowcaseColumns;
     }
   }
 }

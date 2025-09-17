@@ -170,6 +170,37 @@ function getThreeColumnGridMock({
   }
 }
 
+function getShowcaseGridMock({
+  imageId
+}) {
+  return {
+    __component: `shared.showcase-grid`,
+    title: `Projects`,
+    showOnMobile: true,
+    anchorId: `projects`,
+    showcaseColumns: [
+      {
+        type: `media`,
+        showcaseColumnWithMedia: {
+          title: `Pelican`,
+          media: imageId,
+          description: `Pelican project description`,
+          link: `/`,
+          isNda: false,
+          size: `M`,
+        }
+      },
+      {
+        type: `markdown`,
+        showcaseColumnWithMarkdown: {
+          subtitle: `Inner Circle`,
+          markdown: `It is important for us to share experience`,
+        },
+      }
+    ]
+  }
+}
+
 export function getHomeMock({
   imageId
 }: {
@@ -196,6 +227,9 @@ export function getHomeMock({
         imageId
       }),
       getThreeColumnGridMock({
+        imageId
+      }),
+      getShowcaseGridMock({
         imageId
       })
     ],
