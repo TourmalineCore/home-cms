@@ -212,6 +212,7 @@ export interface SharedFeaturedCardsList extends Struct.ComponentSchema {
     displayName: 'featuredCardsList';
   };
   attributes: {
+    anchorId: Schema.Attribute.String;
     featuredCards: Schema.Attribute.Component<'shared.featured-card', true> &
       Schema.Attribute.Required;
     title: Schema.Attribute.String;
