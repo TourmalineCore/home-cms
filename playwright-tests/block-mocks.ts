@@ -19,6 +19,7 @@ export function getFeaturedCardsListMock({
   return {
     __component: `shared.featured-cards-list`,
     title: `title`,
+    anchorId: `services`,
     featuredCards: [
       {
         type: `points`,

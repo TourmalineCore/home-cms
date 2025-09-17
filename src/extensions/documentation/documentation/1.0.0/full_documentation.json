@@ -2642,6 +2642,9 @@
             "items": {
               "$ref": "#/components/schemas/SharedFeaturedCardComponent"
             }
+          },
+          "anchorId": {
+            "type": "string"
           }
         }
       },

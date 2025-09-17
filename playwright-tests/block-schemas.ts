@@ -15,6 +15,7 @@ const HeroSchema = z.object({
 const FeaturedCardsListSchema = z.object({
   __component: z.literal(`shared.featured-cards-list`),
   id: z.number(),
+  anchorId: z.string(),
   title: z.string(),
   featuredCards: z.array(
     z.object({
