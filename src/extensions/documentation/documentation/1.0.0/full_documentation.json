@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-09-17T07:30:39.030Z"
+    "x-generation-date": "2025-09-17T06:55:43.659Z"
   },
   "x-strapi-config": {
     "plugins": []
@@ -4251,6 +4251,53 @@
               "isMultiLevelNavigation": {
                 "type": "boolean"
               },
+              "blocks": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/SharedThreeColumnGridComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedSingleImageComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedSignpostMultipleComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedShowcaseGridComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedHeroComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedFeaturedCardsListComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedCollageWithTitleComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedCollageWithLinkComponent"
+                    }
+                  ]
+                },
+                "discriminator": {
+                  "propertyName": "__component",
+                  "mapping": {
+                    "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent",
+                    "shared.single-image": "#/components/schemas/SharedSingleImageComponent",
+                    "shared.signpost-multiple": "#/components/schemas/SharedSignpostMultipleComponent",
+                    "shared.showcase-grid": "#/components/schemas/SharedShowcaseGridComponent",
+                    "shared.hero": "#/components/schemas/SharedHeroComponent",
+                    "shared.featured-cards-list": "#/components/schemas/SharedFeaturedCardsListComponent",
+                    "shared.collage-with-title": "#/components/schemas/SharedCollageWithTitleComponent",
+                    "shared.collage-with-link": "#/components/schemas/SharedCollageWithLinkComponent"
+                  }
+                }
+              },
+              "seo": {
+                "$ref": "#/components/schemas/SharedSeoComponent"
+              },
               "locale": {
                 "type": "string"
               },
@@ -4361,6 +4408,53 @@
                 "isMultiLevelNavigation": {
                   "type": "boolean"
                 },
+                "blocks": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/SharedThreeColumnGridComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SharedSingleImageComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SharedSignpostMultipleComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SharedShowcaseGridComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SharedHeroComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SharedFeaturedCardsListComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SharedCollageWithTitleComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SharedCollageWithLinkComponent"
+                      }
+                    ]
+                  },
+                  "discriminator": {
+                    "propertyName": "__component",
+                    "mapping": {
+                      "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent",
+                      "shared.single-image": "#/components/schemas/SharedSingleImageComponent",
+                      "shared.signpost-multiple": "#/components/schemas/SharedSignpostMultipleComponent",
+                      "shared.showcase-grid": "#/components/schemas/SharedShowcaseGridComponent",
+                      "shared.hero": "#/components/schemas/SharedHeroComponent",
+                      "shared.featured-cards-list": "#/components/schemas/SharedFeaturedCardsListComponent",
+                      "shared.collage-with-title": "#/components/schemas/SharedCollageWithTitleComponent",
+                      "shared.collage-with-link": "#/components/schemas/SharedCollageWithLinkComponent"
+                    }
+                  }
+                },
+                "seo": {
+                  "$ref": "#/components/schemas/SharedSeoComponent"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -4381,258 +4475,6 @@
                     },
                     "documentId": {
                       "type": "string"
-                    },
-                    "firstname": {
-                      "type": "string"
-                    },
-                    "lastname": {
-                      "type": "string"
-                    },
-                    "username": {
-                      "type": "string"
-                    },
-                    "email": {
-                      "type": "string",
-                      "format": "email"
-                    },
-                    "resetPasswordToken": {
-                      "type": "string"
-                    },
-                    "registrationToken": {
-                      "type": "string"
-                    },
-                    "isActive": {
-                      "type": "boolean"
-                    },
-                    "roles": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number"
-                          },
-                          "documentId": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "type": "string"
-                          },
-                          "code": {
-                            "type": "string"
-                          },
-                          "description": {
-                            "type": "string"
-                          },
-                          "users": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "number"
-                                },
-                                "documentId": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          },
-                          "permissions": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "number"
-                                },
-                                "documentId": {
-                                  "type": "string"
-                                },
-                                "action": {
-                                  "type": "string"
-                                },
-                                "actionParameters": {},
-                                "subject": {
-                                  "type": "string"
-                                },
-                                "properties": {},
-                                "conditions": {},
-                                "role": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "number"
-                                    },
-                                    "documentId": {
-                                      "type": "string"
-                                    }
-                                  }
-                                },
-                                "createdAt": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                },
-                                "updatedAt": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                },
-                                "publishedAt": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                },
-                                "createdBy": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "number"
-                                    },
-                                    "documentId": {
-                                      "type": "string"
-                                    }
-                                  }
-                                },
-                                "updatedBy": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "number"
-                                    },
-                                    "documentId": {
-                                      "type": "string"
-                                    }
-                                  }
-                                },
-                                "locale": {
-                                  "type": "string"
-                                },
-                                "localizations": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "number"
-                                      },
-                                      "documentId": {
-                                        "type": "string"
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "createdAt": {
-                            "type": "string",
-                            "format": "date-time"
-                          },
-                          "updatedAt": {
-                            "type": "string",
-                            "format": "date-time"
-                          },
-                          "publishedAt": {
-                            "type": "string",
-                            "format": "date-time"
-                          },
-                          "createdBy": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number"
-                              },
-                              "documentId": {
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "updatedBy": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number"
-                              },
-                              "documentId": {
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "locale": {
-                            "type": "string"
-                          },
-                          "localizations": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "number"
-                                },
-                                "documentId": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "blocked": {
-                      "type": "boolean"
-                    },
-                    "preferedLanguage": {
-                      "type": "string"
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "publishedAt": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "createdBy": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number"
-                        },
-                        "documentId": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "updatedBy": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number"
-                        },
-                        "documentId": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "locale": {
-                      "type": "string"
-                    },
-                    "localizations": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number"
-                          },
-                          "documentId": {
-                            "type": "string"
-                          }
-                        }
-                      }
                     }
                   }
                 },
@@ -4669,6 +4511,53 @@
           },
           "isMultiLevelNavigation": {
             "type": "boolean"
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/SharedThreeColumnGridComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedSingleImageComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedSignpostMultipleComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedShowcaseGridComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedHeroComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedFeaturedCardsListComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedCollageWithTitleComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedCollageWithLinkComponent"
+                }
+              ]
+            },
+            "discriminator": {
+              "propertyName": "__component",
+              "mapping": {
+                "shared.three-column-grid": "#/components/schemas/SharedThreeColumnGridComponent",
+                "shared.single-image": "#/components/schemas/SharedSingleImageComponent",
+                "shared.signpost-multiple": "#/components/schemas/SharedSignpostMultipleComponent",
+                "shared.showcase-grid": "#/components/schemas/SharedShowcaseGridComponent",
+                "shared.hero": "#/components/schemas/SharedHeroComponent",
+                "shared.featured-cards-list": "#/components/schemas/SharedFeaturedCardsListComponent",
+                "shared.collage-with-title": "#/components/schemas/SharedCollageWithTitleComponent",
+                "shared.collage-with-link": "#/components/schemas/SharedCollageWithLinkComponent"
+              }
+            }
+          },
+          "seo": {
+            "$ref": "#/components/schemas/SharedSeoComponent"
           },
           "createdAt": {
             "type": "string",

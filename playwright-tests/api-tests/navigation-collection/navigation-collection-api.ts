@@ -1,9 +1,7 @@
 import { HttpStatusCode } from "../../enums";
 import { ApiTestFixtures, expect } from "../../api-test-fixtures";
-import { API_SMOKE_NAME_PREFIX } from "../../constants";
-
-const NAME = `${API_SMOKE_NAME_PREFIX} Services`;
-const LINK = `/services`;
+import { getFileIdByName } from "../../helpers";
+import { getNavigationMock, NAVIGATION_NAME } from "./navigation-mocks";
 
 export const NAVIGATION_ENDPOINT = `/api/navigations`;
 
@@ -13,13 +11,16 @@ export async function createNavigationApi({
   apiRequest: ApiTestFixtures[`apiRequest`];
 }) {
   try {
+    const imageId = await getFileIdByName({
+      apiRequest
+    });
+      
     const response = await apiRequest(NAVIGATION_ENDPOINT, {
       method: `post`,
       data: {
-        data: {
-          name: NAME,
-          link: LINK,
-        }
+        data: getNavigationMock({
+          imageId
+        })
       }
     });
 
@@ -44,7 +45,7 @@ export async function cleanupNavigationApi({
       apiRequest
     });
 
-    const navigation = navigationList.find((navigation) => navigation.name === NAME);
+    const navigation = navigationList.find((navigation) => navigation.name === NAVIGATION_NAME);
 
     if (navigation) {
       const response = await apiRequest(`${NAVIGATION_ENDPOINT}/${navigation.documentId}`, {
@@ -64,7 +65,7 @@ export async function getNavigationData({
 }: {
   apiRequest: ApiTestFixtures[`apiRequest`];
 }) {
-  const response = await apiRequest(`${NAVIGATION_ENDPOINT}?populate=*`);
+  const response = await apiRequest(`${NAVIGATION_ENDPOINT}?populate=all`);
   const responseData = await response.json();
 
   return responseData.data;
