@@ -191,7 +191,7 @@ const ShowcaseGridSchema = z.object({
   showcaseColumns: z.array(ShowcaseColumnSchema),
 });
 
-export const HomepageSchema = z.object({
+export const PageSchema = z.object({
   id: z.number(),
   blocks: z.array(
     z.discriminatedUnion(
@@ -207,12 +207,14 @@ export const HomepageSchema = z.object({
         ShowcaseGridSchema
       ]
     )
-  ),
+  )
+    .nullish(),
   seo: z.object({
     metaTitle: z.string(),
     metaDescription: z.string(),
     keywords: z.string()
       .nullish()
   })
+    .nullish()
 });
 
