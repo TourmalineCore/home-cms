@@ -1,6 +1,6 @@
 import { ApiTestFixtures, expect, test } from "../../api-test-fixtures";
+import { PageSchema } from "../../block-schemas";
 import { cleanupHomepageSingleTypeApi, updateHomepageSingleTypeApi, HOMEPAGE_ENDPOINT } from "./homepage-single-type-api";
-import { HomepageSchema } from "./homepage-single-type-schema";
 
 test.describe(`Homepage single type response tests`, () => {
   test.beforeEach(async ({
@@ -42,7 +42,7 @@ async function checkHomepageSingleTypeResponseTest({
   const homepageData = await homepageResponse.json();
   
   await expect(() => {
-    HomepageSchema.parse(homepageData.data)
+    PageSchema.parse(homepageData.data)
   }, `Homepage response is correct`)
     .not
     .toThrow()

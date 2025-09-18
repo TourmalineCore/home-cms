@@ -48,5 +48,3 @@ export async function cleanupHomepageSingleTypeApi({
     throw new Error(`Failed to delete test homepage single type: ${error.message}`)
   }
 }
-
-

@@ -493,6 +493,23 @@ export interface ApiNavigationNavigation extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'shared.three-column-grid',
+        'shared.single-image',
+        'shared.signpost-multiple',
+        'shared.showcase-grid',
+        'shared.hero',
+        'shared.featured-cards-list',
+        'shared.collage-with-title',
+        'shared.collage-with-link',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -528,6 +545,12 @@ export interface ApiNavigationNavigation extends Struct.CollectionTypeSchema {
       'api::navigation.navigation'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
