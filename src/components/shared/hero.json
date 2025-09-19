@@ -12,7 +12,7 @@
     "description": {
       "type": "text"
     },
-    "gallery": {
+    "media": {
       "type": "media",
       "multiple": true,
       "allowedTypes": [

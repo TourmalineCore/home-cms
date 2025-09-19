@@ -7,7 +7,7 @@ export function getHeroMock({
     __component: `shared.hero`,
     title: `title`,
     description: `description`,
-    gallery: [imageId],
+    media: [imageId],
   }
 }
 

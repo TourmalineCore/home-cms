@@ -259,7 +259,7 @@ export interface SharedHero extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    gallery: Schema.Attribute.Media<'images' | 'videos', true>;
+    media: Schema.Attribute.Media<'images' | 'videos', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
