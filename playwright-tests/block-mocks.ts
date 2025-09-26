@@ -79,6 +79,8 @@ export function getFeaturedCardsListMock({
 
 export function getCollageWithTitleMock({
   imageId
+}: {
+  imageId: number;
 }) {
   return {
     __component: `shared.collage-with-title`,
@@ -89,6 +91,8 @@ export function getCollageWithTitleMock({
 
 export function getCollageWithLinkMock({
   imageId
+}: {
+  imageId: number;
 }) {
   return {
     __component: `shared.collage-with-link`,
@@ -102,6 +106,8 @@ export function getCollageWithLinkMock({
 
 export function getSignpostMultipleMock({
   imageId
+}: {
+  imageId: number;
 }) {
   return {
     __component: `shared.signpost-multiple`,
@@ -123,6 +129,8 @@ export function getSignpostMultipleMock({
 
 export function getSingleImageMock({
   imageId
+}: {
+  imageId: number;
 }) {
   return {
     __component: `shared.single-image`,
@@ -132,6 +140,8 @@ export function getSingleImageMock({
 
 export function getThreeColumnGridMock({
   imageId
+}: {
+  imageId: number;
 }) {
   return {
     __component: `shared.three-column-grid`,
@@ -171,8 +181,16 @@ export function getThreeColumnGridMock({
   }
 }
 
+export function getFormMocks() {
+  return {
+    __component: `shared.form`,
+  }
+}
+
 export function getShowcaseGridMock({
   imageId
+}: {
+  imageId: number;
 }) {
   return {
     __component: `shared.showcase-grid`,

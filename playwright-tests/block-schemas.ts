@@ -191,6 +191,10 @@ const ShowcaseGridSchema = z.object({
   showcaseColumns: z.array(ShowcaseColumnSchema),
 });
 
+const FormSchema = z.object({
+  __component: z.literal(`shared.form`),
+});
+
 export const PageSchema = z.object({
   id: z.number(),
   blocks: z.array(
@@ -204,7 +208,8 @@ export const PageSchema = z.object({
         SignpostMultipleSchema,
         SingleImageSchema,
         ThreeColumnGridSchema,
-        ShowcaseGridSchema
+        ShowcaseGridSchema,
+        FormSchema
       ]
     )
   )
