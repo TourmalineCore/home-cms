@@ -9,6 +9,7 @@
 4. [Social network](#social-networks)
 5. [Homepage](#homepage)
 6. [Layout](#layout)
+7. [Adding new pages](#adding-new-pages)
 
 <h2 id="general-information">1. General information</h2>
 
@@ -218,3 +219,30 @@ The footer in `navigationLists` has the fields `link` and `socialLinks`, they co
 ![alt text](./images/footer-social-links.png)
 
 After filling in all the necessary fields, you can publish.
+
+<h2 id="adding-new-pages">7. Adding new pages</h2>
+
+New pages are added in the navigation tab.
+
+![alt text](./images/navigation-tab.png)
+
+To create new page, click the "Create new entry" button in the navigation tab.
+
+![alt text](./images/navigation-create-new-entry-btn.png)
+
+Fill in the `name`, `link` field and set *false* in `isMultiLevelNavigation`.
+
+![alt text](./images/create-new-page.png)
+
+Add the necessary components to the page and fill them in.
+
+![alt text](./images/new-page-add-components-btn.png)
+
+![alt text](./images/new-page-components.png)
+
+>Be sure to fill out the seo
+
+![alt text](./images/new-page-seo.png)
+
+Then you can click on the publish button.
+
