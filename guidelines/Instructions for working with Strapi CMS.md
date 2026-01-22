@@ -60,7 +60,7 @@ In the window that opens, select the language you want to copy the content from 
 
 1. [Hero](https://www.tourmalinecore.com/components/hero)
 
-2. [FeaturedCardList](https://www.tourmalinecore.com/components/services)
+2. [FeaturedCardList](https://tourmalinecore.com/components/featured-cards-list)
 
 3. [CollageWithTitle](https://www.tourmalinecore.com/components/collage-with-title)
 
@@ -71,11 +71,11 @@ In the window that opens, select the language you want to copy the content from 
 6. [SingleImage](https://www.tourmalinecore.com/components/single-image)
 
 7. ShowCasesGrid:</br>
-  7.1. [With markdown columns](https://www.tourmalinecore.com/components/projects-with-text-block)</br> 
-  7.2. [Three columns](https://www.tourmalinecore.com/components/projects-with-three-cards)</br>
-  7.3. [Four columns](https://www.tourmalinecore.com/components/projects-with-four-cards)
+  7.1. [With markdown columns](https://tourmalinecore.com/components/showcase-grid-with-markdown-column)</br> 
+  7.2. [Three columns](https://tourmalinecore.com/components/showcase-grid-with-three-columns)</br>
+  7.3. [Four columns](https://tourmalinecore.com/components/showcase-grid-with-four-columns)
 
-8. [ThreeColumnGrid](https://www.tourmalinecore.com/components/cards-grid)
+8. [ThreeColumnGrid](https://tourmalinecore.com/components/three-column-grid)
 
 9. [Form](https://www.tourmalinecore.com/components/form-block)
 
