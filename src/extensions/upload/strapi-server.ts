@@ -1,6 +1,7 @@
 import sharp from "sharp";
 
 // More information about plugin extensions here https://docs.strapi.io/cms/plugins-development/plugins-extension#extending-a-plugins-interface
+// About lifecycle hooks https://docs.strapi.io/cms/configurations/functions#lifecycle-functions
 
 module.exports = (plugin) => {
   // Add blurDataURL to content types
@@ -44,10 +45,7 @@ module.exports = (plugin) => {
     }
   };
 
-
-  
-  // Add lifecycle hooks https://docs.strapi.io/cms/configurations/functions#lifecycle-functions
-  // for add blurDataUrl after upload images
+  // Add for add blurDataUrl after upload images
   strapi.db.lifecycles.subscribe({
     models: [`plugin::upload.file`],
     
