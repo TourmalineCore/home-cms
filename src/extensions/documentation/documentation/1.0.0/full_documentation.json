@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-09-18T08:04:48.006Z"
+    "x-generation-date": "2026-01-23T08:23:12.918Z"
   },
   "x-strapi-config": {
     "plugins": []
@@ -2176,6 +2176,9 @@
                 "folderPath": {
                   "type": "string"
                 },
+                "blurDataURL": {
+                  "type": "string"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -2312,6 +2315,9 @@
                 }
               },
               "folderPath": {
+                "type": "string"
+              },
+              "blurDataURL": {
                 "type": "string"
               },
               "createdAt": {
@@ -2513,6 +2519,9 @@
                 }
               },
               "folderPath": {
+                "type": "string"
+              },
+              "blurDataURL": {
                 "type": "string"
               },
               "createdAt": {
@@ -2741,6 +2750,9 @@
                 "folderPath": {
                   "type": "string"
                 },
+                "blurDataURL": {
+                  "type": "string"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -2877,6 +2889,9 @@
                 }
               },
               "folderPath": {
+                "type": "string"
+              },
+              "blurDataURL": {
                 "type": "string"
               },
               "createdAt": {
@@ -3057,6 +3072,9 @@
               "folderPath": {
                 "type": "string"
               },
+              "blurDataURL": {
+                "type": "string"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -3195,6 +3213,9 @@
                 }
               },
               "folderPath": {
+                "type": "string"
+              },
+              "blurDataURL": {
                 "type": "string"
               },
               "createdAt": {
@@ -3464,6 +3485,9 @@
               "folderPath": {
                 "type": "string"
               },
+              "blurDataURL": {
+                "type": "string"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -3677,6 +3701,9 @@
                 "folderPath": {
                   "type": "string"
                 },
+                "blurDataURL": {
+                  "type": "string"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -3819,6 +3846,9 @@
                 }
               },
               "folderPath": {
+                "type": "string"
+              },
+              "blurDataURL": {
                 "type": "string"
               },
               "createdAt": {

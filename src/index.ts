@@ -89,5 +89,58 @@ export default {
     await strapi
       .service(`plugin::users-permissions.role`)
       .updateRole(_public.id, _public);
-  },
+
+    // Need necessary to generate a blurDataURL for already uploaded images
+    await generateMissingBlurDataURLs({
+      strapi
+    })
+  }
 };
+
+
+async function generateMissingBlurDataURLs({
+  strapi
+}: {
+  strapi: Core.Strapi
+}) {
+  const images = await strapi.db.query(`plugin::upload.file`)
+    .findMany({
+      where: {
+        $and: [
+          {
+            mime: {
+              $contains: `image/` 
+            } 
+          },
+          { 
+            $or: [
+              {
+                blurDataURL: null 
+              },
+              {
+                blurDataURL: `` 
+              }
+            ]
+          }
+        ]
+      },
+    });
+
+  const blurService = strapi.service(`plugin::upload.blur-generator`);
+
+  for (const image of images) {
+    const buffer = await blurService.getBufferFromUrl(image.url);
+
+    const blurDataURL = await blurService.generateBlurDataURL(buffer);
+
+    await strapi.db.query(`plugin::upload.file`)
+      .update({
+        where: {
+          id: image.id 
+        },
+        data: {
+          blurDataURL 
+        }
+      });
+  }
+}
