@@ -16,11 +16,11 @@ module.exports = (plugin) => {
     generateBlurDataURL: async (buffer) => {
       try {
         const sharpImage = await sharp(buffer)
-          .resize(10, 10, {
+          .resize(20, 20, {
             fit: `inside` 
           })
           .jpeg({
-            quality: 20,
+            quality: 40,
             mozjpeg: true 
           })
           .toBuffer();
