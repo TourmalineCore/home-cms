@@ -90,7 +90,7 @@ export default {
       .service(`plugin::users-permissions.role`)
       .updateRole(_public.id, _public);
 
-    // Need to generate a blurDataURL for already uploaded images
+    // Needed to generate a blurDataURL for already uploaded images
     await generateMissingBlurDataURLs({
       strapi
     })

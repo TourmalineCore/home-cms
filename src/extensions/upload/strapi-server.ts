@@ -11,7 +11,7 @@ module.exports = (plugin) => {
     required: false,
   };
 
-  // Add custom service for generate blur and get buffer by url
+  // Add custom service to generate blur and get buffer by url
   plugin.services[`blur-generator`] = {
     generateBlurDataURL: async (buffer) => {
       try {
@@ -45,7 +45,7 @@ module.exports = (plugin) => {
     }
   };
 
-  // Add for add blurDataUrl after upload images
+  // Needed to add blurDataUrl after image upload
   strapi.db.lifecycles.subscribe({
     models: [`plugin::upload.file`],
     
