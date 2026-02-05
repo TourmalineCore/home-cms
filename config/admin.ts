@@ -28,5 +28,6 @@ export default ({
     `../playwright-report/**`,
     `**/playwright-report/**`,
     `**/playwright-tests/**`,
+    `**/guidelines/**`
   ]
 });
