@@ -2,6 +2,7 @@ import {
   getCollageWithLinkMock,
   getCollageWithTitleMock,
   getFeaturedCardsListMock,
+  getFormMocks,
   getHeroMock,
   getShowcaseGridMock,
   getSignpostMultipleMock,
@@ -40,7 +41,8 @@ export function getHomeMock({
       }),
       getShowcaseGridMock({
         imageId
-      })
+      }),
+      getFormMocks()
     ],
     seo: {
       metaTitle: `metaTitle`,

@@ -30,7 +30,8 @@
         "shared.single-image",
         "shared.three-column-grid",
         "shared.showcase-grid",
-        "shared.collage-with-link"
+        "shared.collage-with-link",
+        "shared.form"
       ],
       "required": true
     },

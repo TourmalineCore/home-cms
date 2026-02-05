@@ -399,6 +399,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'shared.three-column-grid',
         'shared.showcase-grid',
         'shared.collage-with-link',
+        'shared.form',
       ]
     > &
       Schema.Attribute.Required &

@@ -233,6 +233,14 @@ export interface SharedFooter extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedForm extends Struct.ComponentSchema {
+  collectionName: 'components_shared_forms';
+  info: {
+    displayName: 'form';
+  };
+  attributes: {};
+}
+
 export interface SharedHeader extends Struct.ComponentSchema {
   collectionName: 'components_shared_headers';
   info: {
@@ -478,6 +486,7 @@ declare module '@strapi/strapi' {
       'shared.featured-card': SharedFeaturedCard;
       'shared.featured-cards-list': SharedFeaturedCardsList;
       'shared.footer': SharedFooter;
+      'shared.form': SharedForm;
       'shared.header': SharedHeader;
       'shared.hero': SharedHero;
       'shared.link': SharedLink;
