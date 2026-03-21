@@ -1,5 +1,5 @@
 # home-cms
-
+# THIS REPOSITORY IS DEPRECATED AND WILL NO LONGER BE UPDATED! THE NEW SOURCE CODE CAN BE FOUND [HERE](https://github.com/TourmalineCore/home/tree/master/cms)
 
 ### Running CMS locally
 
